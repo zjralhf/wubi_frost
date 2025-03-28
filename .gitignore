@@ -1,0 +1,9 @@
+.idea/*
+.git/*
+.DS_Store
+build
+installation.yaml
+user.yaml
+sync/*
+luna_pinyin.userdb/*
+user.txt
