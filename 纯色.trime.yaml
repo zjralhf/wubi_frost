@@ -1,0 +1,3702 @@
+# SPDX-FileCopyrightText: 2015 - 2024 Rime community
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Trime default style settings
+# encoding: utf-8
+
+config_version: "3.0"
+name: 纯色 #方案名称
+author: 晨风 #作者信息，基于默认、听雨客主题，参考诸位前辈主题
+
+style:
+  color_scheme: 01_biaozhun # 默认配色方案
+
+  # 候选注释区
+  comment_font: comment.ttf #候选注释字体
+  comment_text_size: 8 #候选注释字号
+  comment_on_top: true #候选注释在上方true或右侧false
+  candidate_view_height: 25 #候选区高度
+  candidate_use_cursor: true # 高亮候选项打开true关闭false
+  horizontal: true #悬浮窗候选水平定位模式竖排false横排true
+
+  # 悬浮窗口设置
+  text_font: latin.ttf #编码字体
+  text_size: 15 #编码字号
+  label_text_size: 12 #候选序号
+  label_font: label.ttf #候选序号字体
+  # text_height: 22 #编码区高度(旧版参数,新版弃用)
+
+  # 候选区
+  candidate_padding: 5 #候选项内边距
+  candidate_spacing: 0 #候选间距
+  candidate_text_size: 18 #候选文本字号
+  comment_height: 15 #候选提示区高度
+  candidate_font: [LXGWWenKaiMonoGBScreen.ttf, SimSunT.ttf, Yuniversus.ttf, Jigmo.ttf, Jigmo2.ttf, Jigmo3.ttf] # 候选字体，自[3.2.17]起支持多字体，应变列表(>= Android 10): [han.ttf, hanb.ttf]
+  hanb_font: hanb.ttf #扩充字型
+
+  # 键盘区
+  key_height: 45 # 预设键高
+  key_width: 10.0 #键宽，占屏幕宽的百分比
+  key_font: 03-W03.ttf #按键字体
+  key_text_size: 27 #按键字号
+  key_long_text_size: 16 #长文本字号（如功能键）
+  symbol_font: symbol.ttf #按键符号字型
+  symbol_text_size: 9 #按键符号字号
+  horizontal_gap: 3 #按键列距
+  vertical_gap: 3 #按键键行距
+  round_corner: 8 #按键圆角半径
+  shadow_radius: 0.0 #按键阴影半径
+  proximity_correction: true # 按键邻近空间校正true打开false关闭
+  vertical_correction: -5 # 按键触摸位置校正(上正下负)
+  keyboard_height: 225 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_padding: 3 #竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
+  keyboard_padding_bottom: 15 #竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
+  keyboard_padding_left: 3 #竖屏屏模式下，左手键盘布局，屏幕左侧与键盘的距离
+  keyboard_padding_right: 40 #竖屏屏模式下，左手键盘布局，屏幕右侧与键盘的距离
+  keyboard_padding_land: 40 #横屏模式下，屏幕左右两侧与键盘的距离(避免横屏按键过度拉伸变形)
+  keyboard_padding_land_bottom: 0 #横屏模式下，屏幕下侧与键盘的距离
+  auto_caps: false #自动句首大写:打开true关闭false仅英文模式句首大写ascii
+  background_dim_amount: 0.5 # 背景变量值(备用参数，暂无功能)
+  latin_font: latin.ttf #英文字型
+  latin_locale: en_US #英文状态 朗读按键或文本时所用语言
+  locale: zh_CN #默认语言 zh_TW,zh_CN,zh_HK 朗读按键或文本时所用语言
+  reset_ascii_mode: false #不同进程中显示键盘时是否重置为中文状态(true 重置为中文 | false 记忆中西状态)
+  speech_opencc_config: none #语音输入简繁转换，需配合 OpenCC 组件使用简转繁s2t.json繁转简t2s.json无转换none(在新版中语音功能或已失效)
+  #background_folder: #背景图保存在background目录下的哪个子目录
+
+  # 按键气泡
+  preview_font: latin.ttf #按键气泡字型
+  preview_height: 60 #按键气泡高度
+  preview_font: latin.ttf #按键气泡字型
+  preview_offset: -12 #按键提示纵向偏移
+  preview_text_size: 30 #按键提示字号
+
+  # 剪贴板
+  key_long_text_border: 1 # 剪贴板按键边框宽度
+  long_text_font: comment.ttf #剪贴板等可能包含大段文本使用的字体
+
+  # 回车键
+  enter_label_mode: 0  #是否使用App提供的ActionLabel内容作为Enter键的文本（由于多数App没有适配ActionLable，实际影响不大）。0不使用，1只使用actionlabel，2优先使用，3当其他方式没有获得label时才读取actionlabel
+  enter_labels:  # 定义Enter键的文本
+    go: 前往
+    done: 完成
+    next: 下个
+    pre:  上个
+    search: 搜索
+    send: 发送
+    default: Enter   # 定义预设Enter键的文本
+# 最好保留一项，防止其他主题使用 __include 时无法加载
+
+  # 悬浮窗口组件
+  window:
+    # - {start: "", move: "☯ ", end: ""} # 窗口移动图标，当 movable 设为可移动时，拖动图标可调整悬浮窗口位置(move 可改为任意符号，start|end 为左右修饰符号)
+    - {start: "", composition: "%s", end: "", letter_spacing: 0} # 编码区设定，composition 无则不显示编码区，letter_spacing 为字符间距(>= Android 5.0，若值不为 0 时会导致不换行问题)
+    - {start: "\n", label: "%s", candidate: "%s", comment: "%s", end: "", sep: "☁️️"} # 候选项设定，start: "\n" 表示此组件另起一行，label 候选项序号|candidate 候选项文本|comment 候选项注释|sep 候选项分隔符
+
+  layout: #悬浮窗口布局
+    border: 1 #边框宽度
+    position: right # 悬浮窗口位置: left|right|left_up|right_up|fixed|bottom_left|bottom_right|top_left|top_right(left、right 需要 Android 5.0 以上)
+    movable: once # 是否可移动窗口，或仅移动一次 true|false|once
+    all_phrases: false # 所有满足条件的词语均显示在窗口
+    min_length: 1 # 候选项加载至悬浮窗口最小词长
+    min_check: 5 # 若前 n 个候选项存在长度 >= min_length 的词，则将长度符合及其前的词均加载至悬浮窗口
+    sticky_lines: 1 # 竖屏模式下固顶行数(旧版新版弃用)
+    sticky_lines_land: 1 # 横屏模式下固顶行数(旧版新版弃用)
+    max_length: 14 # 候选项单行最大字数,超过字数则换行(旧版新版弃用)
+    max_entries: 5 # 悬浮窗口可显最大词条数
+    max_width: 360 # 悬浮窗口最大宽度，超过则自动换行
+    max_height: 400 #最大高度
+    min_width: 40 #悬浮窗口最小宽度
+    min_height: 50 #最小高度(备用参数，暂无功能)
+    margin_x: 5 #水平边距 NOTE: margin_{x, y, bottom} 实际为 padding
+    margin_y: 5 #竖直边距
+    line_spacing: 0 #候选词的行间距(px)
+    line_spacing_multiplier: 0 #候选词的行间距(倍数)
+    spacing: 1 #屏幕上下边缘或预编辑上下边缘和悬浮窗之间的距离
+    round_corner: 10 #悬浮窗口圆角半径
+    alpha: 0xdd #透明度(0-255)
+    elevation: 5 #阴影(>=Android5.0)
+
+  # 键盘布局声明
+  keyboards: [.default, letter, number, edit, symbols] #默认、字母、数字、编辑、符号
+
+  # 颜色应变配置 
+fallback_colors:
+  # text_color是编码文本色，亦是文本兜底色，最好和按键文本色相同
+  # back_color背景色 亦是背景兜底色最好和键盘和候选栏的整体背景或键盘背景相同
+  hilited_text_color: text_color # 高亮文本色 无则总文本生效
+  hilited_back_color: back_color # 高亮背景色 无则总背景色生效
+  root_background: back_color # 键盘和候选栏的整体背景/图 无则总背景色生效
+  keyboard_back_color: root_background # 键盘背景色 无则键盘和候选栏的整体背景色生效
+
+  # 悬浮窗颜色应变配置
+  text_back_color: keyboard_back_color # 悬浮窗(编码区)背景色 无则键盘背景色生效
+  border_color: back_color # 悬浮窗边框色 无则总背景色生效。
+  hilited_label_color: hilited_candidate_text_color # 高亮悬浮窗边框色 无则高亮候选文本色生效
+  label_color: candidate_text_color # 悬浮窗候选项序号色 无则候选文本色生效
+
+  # 候选项颜色应变配置
+  candidate_text_color: text_color # 候选文本色 无则总文本色生效
+  hilited_candidate_text_color: hilited_text_color # 高亮候选文本色 无则高亮文本色生效
+  comment_text_color: candidate_text_color # 候选项文本注释色 无则候选文本色生效
+  hilited_comment_text_color: comment_text_color # 高亮候选项文本注释色 无则候选项文本注释色生效
+  candidate_background: root_background # 候选栏背景色 无则键盘和候选栏的整体背景色生效
+  hilited_candidate_back_color: hilited_back_color # 高亮候选背景色 无则高亮背景色生效
+  candidate_separator_color: candidate_background # 候选分割线色 无则候选栏背景色生效
+
+  # 键盘颜色应变配置
+  key_text_color: candidate_text_color # 按键文本色 无则候选文本色生效
+  hilited_key_text_color: hilited_candidate_text_color # 高亮按键文本色 无则高亮候选文本色生效
+  key_symbol_color: comment_text_color # 按键符号（long_click 和 hint）无则候选项文本注释色生效
+  hilited_key_symbol_color: hilited_comment_text_color # 高亮按键符号色 无则高亮候选项文本注释色生效
+  key_back_color: back_color # 按键背景色 无则总背景色生效
+  hilited_key_back_color: hilited_candidate_back_color # 高亮按键背景色（按下按键时） 无则高亮候选背景色生效
+  preview_text_color: key_text_color # 按键气泡文本 无则按键文本色生效
+  preview_back_color: key_back_color # 按键气泡背景色 无则按键背景色生效
+  shadow_color: border_color # 按键文字阴影（阴影半径在shadow_radius中设定） 无则悬浮窗边框色生效
+  key_border_color: border_color # 按键边框色 无则悬浮窗边框色生效(暂无)
+
+  # 功能键颜色应变配置
+  off_key_text_color: key_text_color # 功能键文本色 无则按键文本色生效
+  hilited_off_key_text_color: hilited_key_text_color # 高亮功能键文本色 高亮按键文本色生效
+  off_key_back_color: key_back_color # 功能键背景 无则按键背景色生效
+  hilited_off_key_back_color: hilited_key_back_color # 高亮功能键包括shift键背景色 无则高亮按键背景色生效
+  on_key_text_color: hilited_key_text_color # 功能键包括shift键锁定时文本 无则高亮按键文本色生效
+  hilited_on_key_text_color: hilited_key_text_color # 高亮功能键包括shift键锁定时文本色 无则高亮按键文本色生效
+  on_key_back_color: hilited_key_back_color # 功能键包括shift键锁定时背景 无则高亮按键背景色生效
+  hilited_on_key_back_color: hilited_key_back_color # 高亮功能键包括shift键锁定时背景色 无则高亮按键背景色生效
+
+  # 其它应变配置
+  liquid_keyboard_background: keyboard_back_color # liquidKeyboard 的键盘背景 无则键盘背景色生效
+  long_text_back_color: key_back_color # 长文本的按键背景色（比如剪贴板） 无则按键背景色生效
+  hand_writing_color: key_text_color # 手写笔迹 无则按键文本色生效
+
+  # 按键背景颜色应变配置(自定义)#这里标注一节按键背景颜色应变配置以明其义，余此类推
+
+  bh1: key_back_color # 行一按键背景·无则按键背景生效
+  bh2: key_back_color # 行二按键背景·无则按键背景生效
+  bh3: key_back_color # 行三按键背景·无则按键背景生效
+  bh4: key_back_color # 行四按键背景·无则按键背景生效
+  bh5: key_back_color # 行五按键背景·无则按键背景生效
+  bh6: key_back_color # 行六按键背景·无则按键背景生效
+  bsfy: keyboard_back_color # 上翻页键背景·无则按键背景生效
+  bxfy: keyboard_back_color # 下翻页键背景·无则按键背景生效
+  bsd: off_key_back_color # shift按键背景·无则功能按键背景生效
+  bsc: off_key_back_color # 删除键背景·无则功能按键背景生效
+  bsz: off_key_back_color # 数字键背景·无则功能按键背景生效
+  bbj: off_key_back_color # 编辑键背景·无则功能按键背景生效
+  bdh: off_key_back_color # 逗号按键背景·无则功能按键背景生效
+  bkg: off_key_back_color # 空格键背景·无则功能按键背景生效
+  bjh: off_key_back_color # 句号按键背景·无则功能按键背景生效
+  bfh: off_key_back_color # 符号按键背景·无则功能按键背景生效
+  bzy: off_key_back_color # 中英切换按键背景·无则功能按键背景生效
+  bhc: off_key_back_color # 回车键背景·无则功能按键背景生效
+  bl1l5: bh1 # 行一左四按键背景·无则行一按键背景生效
+  bl1l4: bh1 # 行一左三按键背景·无则行一按键背景生效
+  bl1l3: bh1 # 行一左二按键背景·无则行一按键背景生效
+  bl1l2: bh1 # 行一左一按键背景·无则行一按键背景生效
+  bl1l1: bh1 # 行一左一按键背景·无则行一按键背景生效
+  bl1r1: bh1 # 行一右一按键背景·无则行一按键背景生效
+  bl1r2: bh1 # 行一右二按键背景·无则行一按键背景生效
+  bl1r3: bh1 # 行一右三按键背景·无则行一按键背景生效
+  bl1r4: bh1 # 行一右四按键背景·无则行一按键背景生效
+  bl1r5: bh1 #行一左五按键背景·无则行一按键背景生效
+  bl2l5: bh2 # 行二左五按键背景·无则行二按键背景生效
+  bl2l4: bh2 # 行二左三按键背景·无则行二按键背景生效
+  bl2l3: bh2 # 行二左二按键背景·无则行二按键背景生效
+  bl2l2: bh2 # 行二左一按键背景·无则行二按键背景生效
+  bl2l1: bh2 # 行二左一按键背景·无则行二按键背景生效
+  bl2r1: bh2 # 行二右一按键背景·无则行二按键背景生效
+  bl2r2: bh2 # 行二右二按键背景·无则行二按键背景生效
+  bl2r3: bh2 # 行二右三按键背景·无则行二按键背景生效
+  bl2r4: bh2 # 行二右四按键背景·无则行二按键背景生效
+  bl2r5: bh2 # 行二右五按键背景·无则行二按键背景生效
+  bl3l5: bh3 # 行二左五按键背景·无则行二按键背景生效
+  bl3l4: bh3 # 行三左三按键背景·无则行三按键背景生效
+  bl3l3: bh3 # 行三左二按键背景·无则行三按键背景生效
+  bl3l2: bh3 # 行三左一按键背景·无则行三按键背景生效
+  bl3l1: bh3 # 行三左一按键背景·无则行三按键背景生效
+  bl3r1: bh3 # 行三右一按键背景·无则行三按键背景生效
+  bl3r2: bh3 # 行三右二按键背景·无则行三按键背景生效
+  bl3r3: bh3 # 行三右三按键背景·无则行三按键背景生效
+  bl3r4: bh3 # 行三右四按键背景·无则行三按键背景生效
+  bl3r5: bh3 # 行三右五按键背景·无则行三按键背景生效
+  bl4l5: bh4 # 行四左五按键背景·无则行四按键背景生效
+  bl4l4: bh4 # 行四左三按键背景·无则行四按键背景生效
+  bl4l3: bh4 # 行四左二按键背景·无则行四按键背景生效
+  bl4l2: bh4 # 行四左一按键背景·无则行四按键背景生效
+  bl4l1: bh4 # 行四左一按键背景·无则行四按键背景生效
+  bl4r1: bh4 # 行四右一按键背景·无则行四按键背景生效
+  bl4r2: bh4 # 行四右二按键背景·无则行四按键背景生效
+  bl4r3: bh4 # 行四右三按键背景·无则行四按键背景生效
+  bl4r4: bh4 # 行四右四按键背景·无则行四按键背景生效
+  bl4r5: bh4 # 行四右五按键背景·无则行四按键背景生效
+  bl5l5: bh5 # 行五左五按键背景·无则行五按键背景生效
+  bl5l4: bh5 # 行五左三按键背景·无则行五按键背景生效
+  bl5l3: bh5 # 行五左二按键背景·无则行五按键背景生效
+  bl5l2: bh5 # 行五左一按键背景·无则行五按键背景生效
+  bl5l1: bh5 # 行五左一按键背景·无则行五按键背景生效
+  bl5r1: bh5 # 行五右一按键背景·无则行五按键背景生效
+  bl5r2: bh5 # 行五右二按键背景·无则行五按键背景生效
+  bl5r3: bh5 # 行五右三按键背景·无则行五按键背景生效
+  bl5r4: bh5 # 行五右四按键背景·无则行五按键背景生效
+  bl5r5: bh5 # 行五右五按键背景·无则行五按键背景生效
+  bl6l5: bh6 # 行六左五按键背景·无则行六按键背景生效
+  bl6l4: bh6 # 行六左三按键背景·无则行六按键背景生效
+  bl6l3: bh6 # 行六左二按键背景·无则行六按键背景生效
+  bl6l2: bh6 # 行六左一按键背景·无则行六按键背景生效
+  bl6l1: bh6 # 行六左一按键背景·无则行六按键背景生效
+  bl6r1: bh6 # 行六右一按键背景·无则行六按键背景生效
+  bl6r2: bh6 # 行六右二按键背景·无则行六按键背景生效
+  bl6r3: bh6 # 行六右三按键背景·无则行六按键背景生效
+  bl6r4: bh6 # 行六右四按键背景·无则行六按键背景生效
+  bl6r5: bh6 # 行六右五按键背景·无则行六按键背景生效
+
+  # 高亮按键背景颜色应变配置
+  hbh1: hilited_key_back_color
+  hbh2: hilited_key_back_color
+  hbh3: hilited_key_back_color
+  hbh4: hilited_key_back_color
+  hbh5: hilited_key_back_color
+  hbh6: hilited_key_back_color
+  hbsfy: hilited_key_back_color
+  hbxfy: hilited_key_back_color
+  hbl1l5: hbh1
+  hbl1l4: hbh1
+  hbl1l3: hbh1
+  hbl1l2: hbh1
+  hbl1l1: hbh1
+  hbl1r1: hbh1
+  hbl1r2: hbh1
+  hbl1r3: hbh1
+  hbl1r4: hbh1
+  hbl1r5: hbh1
+  hbl2l5: hbh2
+  hbl2l4: hbh2
+  hbl2l3: hbh2
+  hbl2l2: hbh2
+  hbl2l1: hbh2
+  hbl2r1: hbh2
+  hbl2r2: hbh2
+  hbl2r3: hbh2
+  hbl2r4: hbh2
+  hbl2r5: hbh2
+  hbl3l5: hbh3
+  hbl3l4: hbh3
+  hbl3l3: hbh3
+  hbl3l2: hbh3
+  hbl3l1: hbh3
+  hbl3r1: hbh3
+  hbl3r2: hbh3
+  hbl3r3: hbh3
+  hbl3r4: hbh3
+  hbl3r5: hbh3
+  hbl4l5: hbh4
+  hbl4l4: hbh4
+  hbl4l3: hbh4
+  hbl4l2: hbh4
+  hbl4l1: hbh4
+  hbl4r1: hbh4
+  hbl4r2: hbh4
+  hbl4r3: hbh4
+  hbl4r4: hbh4
+  hbl4r5: hbh4
+  hbl5l5: hbh5
+  hbl5l4: hbh5
+  hbl5l3: hbh5
+  hbl5l2: hbh5
+  hbl5l1: hbh5
+  hbl5r1: hbh5
+  hbl5r2: hbh5
+  hbl5r3: hbh5
+  hbl5r4: hbh5
+  hbl5r5: hbh5
+  hbl6l5: hbh6
+  hbl6l4: hbh6
+  hbl6l3: hbh6
+  hbl6l2: hbh6
+  hbl6l1: hbh6
+  hbl6r1: hbh6
+  hbl6r2: hbh6
+  hbl6r3: hbh6
+  hbl6r4: hbh6
+  hbl6r5: hbh6
+  hbsd: hilited_off_key_back_color
+  hbdh: hilited_off_key_back_color
+  hbbj: hilited_off_key_back_color
+  hbjh: hilited_off_key_back_color
+  hbsc: hilited_off_key_back_color
+  hbsz: hilited_off_key_back_color
+  hbfh: hilited_off_key_back_color
+  hbzy: hilited_off_key_back_color
+  hbkg: hilited_off_key_back_color
+  hbhc: hilited_off_key_back_color
+
+  # 按键文字颜色应变配置
+  th1: key_text_color
+  th2: key_text_color
+  th3: key_text_color
+  th4: key_text_color
+  th5: key_text_color
+  th6: key_text_color
+  tsfy: tsz
+  txfy: tbj
+  tl1l5: th1
+  tl1l4: th1
+  tl1l3: th1
+  tl1l2: th1
+  tl1l1: th1
+  tl1r1: th1
+  tl1r2: th1
+  tl1r3: th1
+  tl1r4: th1
+  tl1r5: th1
+  tl2l5: th2
+  tl2l4: th2
+  tl2l3: th2
+  tl2l2: th2
+  tl2l1: th2
+  tl2r1: th2
+  tl2r2: th2
+  tl2r3: th2
+  tl2r4: th2
+  tl2r5: th2
+  tl3l5: th3
+  tl3l4: th3
+  tl3l3: th3
+  tl3l2: th3
+  tl3l1: th3
+  tl3r1: th3
+  tl3r2: th3
+  tl3r3: th3
+  tl3r4: th3
+  tl3r5: th3
+  tl4l5: th4
+  tl4l4: th4
+  tl4l3: th4
+  tl4l2: th4
+  tl4l1: th4
+  tl4r1: th4
+  tl4r2: th4
+  tl4r3: th4
+  tl4r4: th4
+  tl4r5: th4
+  tl5l5: th5
+  tl5l4: th5
+  tl5l3: th5
+  tl5l2: th5
+  tl5l1: th5
+  tl5r1: th5
+  tl5r2: th5
+  tl5r3: th5
+  tl5r4: th5
+  tl5r5: th5
+  tl6l5: th6
+  tl6l4: th6
+  tl6l3: th6
+  tl6l2: th6
+  tl6l1: th6
+  tl6r1: th6
+  tl6r2: th6
+  tl6r3: th6
+  tl6r4: th6
+  tl6r5: th6
+  tsd: off_key_text_color
+  tdh: off_key_text_color
+  tbj: off_key_text_color
+  tjh: off_key_text_color
+  tsc: off_key_text_color
+  tsz: off_key_text_color
+  tfh: off_key_text_color
+  tzy: off_key_text_color
+  tkg: off_key_text_color
+  thc: off_key_text_color
+
+  # 高亮按键文字颜色应变配置
+  hth1: hilited_key_text_color
+  hth2: hilited_key_text_color
+  hth3: hilited_key_text_color
+  hth4: hilited_key_text_color
+  hth5: hilited_key_text_color
+  hth6: hilited_key_text_color
+  htl1l5: hth1
+  htl1l4: hth1
+  htl1l3: hth1
+  htl1l2: hth1
+  htl1l1: hth1
+  htl1r1: hth1
+  htl1r2: hth1
+  htl1r3: hth1
+  htl1r4: hth1
+  htl1r5: hth1
+  htl2l5: hth2
+  htl2l4: hth2
+  htl2l3: hth2
+  htl2l2: hth2
+  htl2l1: hth2
+  htl2r1: hth2
+  htl2r2: hth2
+  htl2r3: hth2
+  htl2r4: hth2
+  htl2r5: hth2
+  htl3l5: hth3
+  htl3l4: hth3
+  htl3l3: hth3
+  htl3l2: hth3
+  htl3l1: hth3
+  htl3r1: hth3
+  htl3r2: hth3
+  htl3r3: hth3
+  htl3r4: hth3
+  htl3r5: hth3
+  htl4l5: hth4
+  htl4l4: hth4
+  htl4l3: hth4
+  htl4l2: hth4
+  htl4l1: hth4
+  htl4r1: hth4
+  htl4r2: hth4
+  htl4r3: hth4
+  htl4r4: hth4
+  htl4r5: hth4
+  htl5l5: hth5
+  htl5l4: hth5
+  htl5l3: hth5
+  htl5l2: hth5
+  htl5l1: hth5
+  htl5r1: hth5
+  htl5r2: hth5
+  htl5r3: hth5
+  htl5r4: hth5
+  htl5r5: hth5
+  htl6l5: hth6
+  htl6l4: hth6
+  htl6l3: hth6
+  htl6l2: hth6
+  htl6l1: hth6
+  htl6r1: hth6
+  htl6r2: hth6
+  htl6r3: hth6
+  htl6r4: hth6
+  htl6r5: hth6
+  htsfy: htsz
+  htxfy: htbj
+  htsd: hilited_off_key_text_color
+  htdh: hilited_off_key_text_color
+  htbj: hilited_off_key_text_color
+  htjh: hilited_off_key_text_color
+  htsc: hilited_off_key_text_color
+  htsz: hilited_off_key_text_color
+  htfh: hilited_off_key_text_color
+  htzy: hilited_off_key_text_color
+  htkg: hilited_off_key_text_color
+  hthc: hilited_off_key_text_color
+
+  #按键上文件符号颜色应变配置
+  sh1: key_symbol_color
+  sh2: key_symbol_color
+  sh3: key_symbol_color
+  sh4: key_symbol_color
+  sh5: key_symbol_color
+  sh6: key_symbol_color
+  sgn: key_symbol_color
+  sl1l5: sh1
+  sl1l4: sh1
+  sl1l3: sh1
+  sl1l2: sh1
+  sl1l1: sh1
+  sl1r1: sh1
+  sl1r2: sh1
+  sl1r3: sh1
+  sl1r4: sh1
+  sl1r5: sh1
+  sl2l5: sh2
+  sl2l4: sh2
+  sl2l3: sh2
+  sl2l2: sh2
+  sl2l1: sh2
+  sl2r1: sh2
+  sl2r2: sh2
+  sl2r3: sh2
+  sl2r4: sh2
+  sl2r5: sh2
+  sl3l5: sh3
+  sl3l4: sh3
+  sl3l3: sh3
+  sl3l2: sh3
+  sl3l1: sh3
+  sl3r1: sh3
+  sl3r2: sh3
+  sl3r3: sh3
+  sl3r4: sh3
+  sl3r5: sh3
+  sl4l5: sh4
+  sl4l4: sh4
+  sl4l3: sh4
+  sl4l2: sh4
+  sl4l1: sh4
+  sl4r1: sh4
+  sl4r2: sh4
+  sl4r3: sh4
+  sl4r4: sh4
+  sl4r5: sh4
+  sl5l5: sh5
+  sl5l4: sh5
+  sl5l3: sh5
+  sl5l2: sh5
+  sl5l1: sh5
+  sl5r1: sh5
+  sl5r2: sh5
+  sl5r3: sh5
+  sl5r4: sh5
+  sl5r5: sh5
+  sl6l5: sh6
+  sl6l4: sh6
+  sl6l3: sh6
+  sl6l2: sh6
+  sl6l1: sh6
+  sl6r1: sh6
+  sl6r2: sh6
+  sl6r3: sh6
+  sl6r4: sh6
+  sl6r5: sh6
+  ssfy: ssz
+  sxfy: sbj
+  ssd: sgn
+  sdh: sgn
+  sbj: sgn
+  sjh: sgn
+  ssc: sgn
+  ssz: sgn
+  sfh: sgn
+  szy: sgn
+  skg: sgn
+  shc: sgn
+
+  # 数字键盘背景颜色应变配置
+  bszl1l4: bszgn
+  bszl1l3: bszgn
+  bszl1l2: bszgn
+  bszl1l1: bl2l2
+  bszl1r1: bl2r1
+  bszl1r2: bl2r2
+  bszl1r3: bszgn
+  bszl1r4: bszgn
+  bszl2l4: bszgn
+  bszl2l3: bszgn
+  bszl2l2: bszgn
+  bszl2l1: bl3l2
+  bszl2r1: bl3r1
+  bszl2r2: bl3r2
+  bszl2r3: bszgn
+  bszl2r4: bszgn
+  bszl3l4: bszgn
+  bszl3l3: bszgn
+  bszl3l2: bszgn
+  bszl3l1: bl4l2
+  bszl3r1: bl4r1
+  bszl3r2: bl4r2
+  bszl3r3: bszgn
+  bszl3r4: bszgn
+  bszl4l4: bszgn
+  bszl4l3: bszgn
+  bszl4l2: bszgn
+  bszl4l1: bszgn
+  bszl4r1: bl5r1
+  bszl4r2: bszgn
+  bszl4r3: bszgn
+  bszl4r4: bszgn
+  bszl5l4: bszgn
+  bszl5l3: bszgn
+  bszl5l2: bszgn
+  bszl5l1: bszgn
+  bszl5r1: bszgn
+  bszl5r2: bszgn
+  bszl5r3: bszgn
+  bszl5r4: bszgn
+  bszgn: off_key_back_color
+
+  # 髙亮数字键盘背景颜色应变配置
+  hbszl1l4: hbszgn
+  hbszl1l3: hbszgn
+  hbszl1l2: hbszgn
+  hbszl1l1: hbl2l2
+  hbszl1r1: hbl2r1
+  hbszl1r2: hbl2r2
+  hbszl1r3: hbszgn
+  hbszl1r4: hbszgn
+  hbszl2l4: hbszgn
+  hbszl2l3: hbszgn
+  hbszl2l2: hbszgn
+  hbszl2l1: hbl3l2
+  hbszl2r1: hbl3r1
+  hbszl2r2: hbl3r2
+  hbszl2r3: hbszgn
+  hbszl2r4: hbszgn
+  hbszl3l4: hbszgn
+  hbszl3l3: hbszgn
+  hbszl3l2: hbszgn
+  hbszl3l1: hbl4l2
+  hbszl3r1: hbl4r1
+  hbszl3r2: hbl4r2
+  hbszl3r3: hbszgn
+  hbszl3r4: hbszgn
+  hbszl4l4: hbszgn
+  hbszl4l3: hbszgn
+  hbszl4l2: hbszgn
+  hbszl4l1: hbszgn
+  hbszl4r1: hbl5r1
+  hbszl4r2: hbszgn
+  hbszl4r3: hbszgn
+  hbszl4r4: hbszgn
+  hbszl5l4: hbszgn
+  hbszl5l3: hbszgn
+  hbszl5l2: hbszgn
+  hbszl5l1: hbszgn
+  hbszl5r1: hbszgn
+  hbszl5r2: hbszgn
+  hbszl5r3: hbszgn
+  hbszl5r4: hbszgn
+  hbszgn: hilited_off_key_back_color
+
+  # 数字键盘文字颜色应变配置
+  tszl1l4: tszgn
+  tszl1l3: tszgn
+  tszl1l2: tszgn
+  tszl1l1: tl2l2
+  tszl1r1: tl2r1
+  tszl1r2: tl2r2
+  tszl1r3: tszgn
+  tszl1r4: tszgn
+  tszl2l4: tszgn
+  tszl2l3: tszgn
+  tszl2l2: tszgn
+  tszl2l1: tl3l2
+  tszl2r1: tl3r1
+  tszl2r2: tl3r2
+  tszl2r3: tszgn
+  tszl2r4: tszgn
+  tszl3l4: tszgn
+  tszl3l3: tszgn
+  tszl3l2: tszgn
+  tszl3l1: tl4l2
+  tszl3r1: tl4r1
+  tszl3r2: tl4r2
+  tszl3r3: tszgn
+  tszl3r4: tszgn
+  tszl4l4: tszgn
+  tszl4l3: tszgn
+  tszl4l2: tszgn
+  tszl4l1: tszgn
+  tszl4r1: tl5r1
+  tszl4r2: tszgn
+  tszl4r3: tszgn
+  tszl4r4: tszgn
+  tszl5l4: tszgn
+  tszl5l3: tszgn
+  tszl5l2: tszgn
+  tszl5l1: tszgn
+  tszl5r1: tszgn
+  tszl5r2: tszgn
+  tszl5r3: tszgn
+  tszl5r4: tszgn
+  tszgn: off_key_text_color
+
+  # 髙亮数字键盘文字颜色应变配置
+  htszl1l4: htszgn
+  htszl1l3: htszgn
+  htszl1l2: htszgn
+  htszl1l1: htl2l2
+  htszl1r1: htl2r1
+  htszl1r2: htl2r2
+  htszl1r3: htszgn
+  htszl1r4: htszgn
+  htszl2l4: htszgn
+  htszl2l3: htszgn
+  htszl2l2: htszgn
+  htszl2l1: htl3l2
+  htszl2r1: htl3r1
+  htszl2r2: htl3r2
+  htszl2r3: htszgn
+  htszl2r4: htszgn
+  htszl3l4: htszgn
+  htszl3l3: htszgn
+  htszl3l2: htszgn
+  htszl3l1: htl4l2
+  htszl3r1: htl4r1
+  htszl3r2: htl4r2
+  htszl3r3: htszgn
+  htszl3r4: htszgn
+  htszl4l4: htszgn
+  htszl4l3: htszgn
+  htszl4l2: htszgn
+  htszl4l1: htszgn
+  htszl4r1: htl5r1
+  htszl4r2: htszgn
+  htszl4r3: htszgn
+  htszl4r4: htszgn
+  htszl5l4: htszgn
+  htszl5l3: htszgn
+  htszl5l2: htszgn
+  htszl5l1: htszgn
+  htszl5r1: htszgn
+  htszl5r2: htszgn
+  htszl5r3: htszgn
+  htszl5r4: htszgn
+  htszgn: hilited_off_key_text_color
+
+  # 数字键盘符号文字颜色应变配置
+  sszl1l4: sszgn
+  sszl1l3: sszgn
+  sszl1l2: sszgn
+  sszl1l1: sl2l2
+  sszl1r1: sl2r1
+  sszl1r2: sl2r2
+  sszl1r3: sszgn
+  sszl1r4: sszgn
+  sszl2l4: sszgn
+  sszl2l3: sszgn
+  sszl2l2: sszgn
+  sszl2l1: sl3l2
+  sszl2r1: sl3r1
+  sszl2r2: sl3r2
+  sszl2r3: sszgn
+  sszl2r4: sszgn
+  sszl3l4: sszgn
+  sszl3l3: sszgn
+  sszl3l2: sszgn
+  sszl3l1: sl4l2
+  sszl3r1: sl4r1
+  sszl3r2: sl4r2
+  sszl3r3: sszgn
+  sszl3r4: sszgn
+  sszl4l4: sszgn
+  sszl4l3: sszgn
+  sszl4l2: sszgn
+  sszl4l1: sszgn
+  sszl4r1: sl5r1
+  sszl4r2: sszgn
+  sszl4r3: sszgn
+  sszl4r4: sszgn
+  sszl5l4: sszgn
+  sszl5l3: sszgn
+  sszl5l2: sszgn
+  sszl5l1: sszgn
+  sszl5r1: sszgn
+  sszl5r2: sszgn
+  sszl5r3: sszgn
+  sszl5r4: sszgn
+  sszgn: sgn
+
+  # 编辑键盘背景颜色应变配置
+  bbjl1l4: bbjgn
+  bbjl1l3: bbjgn
+  bbjl1l2: bbjgn
+  bbjl1l1: bl2l2
+  bbjl1r1: bl2r1
+  bbjl1r2: bl2r2
+  bbjl1r3: bbjgn
+  bbjl1r4: bbjgn
+  bbjl2l4: bbjgn
+  bbjl2l3: bbjgn
+  bbjl2l2: bbjgn
+  bbjl2l1: bl3l2
+  bbjl2r1: bbjgn
+  bbjl2r2: bl3r2
+  bbjl2r3: bbjgn
+  bbjl2r4: bbjgn
+  bbjl3l4: bbjgn
+  bbjl3l3: bbjgn
+  bbjl3l2: bbjgn
+  bbjl3l1: bl4l2
+  bbjl3r1: bl4r1
+  bbjl3r2: bl4r2
+  bbjl3r3: bbjgn
+  bbjl3r4: bbjgn
+  bbjl4l4: bbjgn
+  bbjl4l3: bbjgn
+  bbjl4l2: bbjgn
+  bbjl4l1: bbjgn
+  bbjl4r1: bbjgn
+  bbjl4r2: bbjgn
+  bbjl4r3: bbjgn
+  bbjl4r4: bbjgn
+  bbjl5l4: bbjgn
+  bbjl5l3: bbjgn
+  bbjl5l2: bbjgn
+  bbjl5l1: bbjgn
+  bbjl5r1: bbjgn
+  bbjl5r2: bbjgn
+  bbjl5r3: bbjgn
+  bbjl5r4: bbjgn
+  bbjgn: off_key_back_color
+
+  # 髙亮编辑键盘背景颜色应变配置
+  hbbjl1l4: hbbjgn
+  hbbjl1l3: hbbjgn
+  hbbjl1l2: hbbjgn
+  hbbjl1l1: hbl2l2
+  hbbjl1r1: hbl2r1
+  hbbjl1r2: hbl2r2
+  hbbjl1r3: hbbjgn
+  hbbjl1r4: hbbjgn
+  hbbjl2l4: hbbjgn
+  hbbjl2l3: hbbjgn
+  hbbjl2l2: hbbjgn
+  hbbjl2l1: hbl3l2
+  hbbjl2r1: hbbjgn
+  hbbjl2r2: hbl3r2
+  hbbjl2r3: hbbjgn
+  hbbjl2r4: hbbjgn
+  hbbjl3l4: hbbjgn
+  hbbjl3l3: hbbjgn
+  hbbjl3l2: hbbjgn
+  hbbjl3l1: hbl4l2
+  hbbjl3r1: hbl4r1
+  hbbjl3r2: hbl4r2
+  hbbjl3r3: hbbjgn
+  hbbjl3r4: hbbjgn
+  hbbjl4l4: hbbjgn
+  hbbjl4l3: hbbjgn
+  hbbjl4l2: hbbjgn
+  hbbjl4l1: hbbjgn
+  hbbjl4r1: hbbjgn
+  hbbjl4r2: hbbjgn
+  hbbjl4r3: hbbjgn
+  hbbjl4r4: hbbjgn
+  hbbjl5l4: hbbjgn
+  hbbjl5l3: hbbjgn
+  hbbjl5l2: hbbjgn
+  hbbjl5l1: hbbjgn
+  hbbjl5r1: hbbjgn
+  hbbjl5r2: hbbjgn
+  hbbjl5r3: hbbjgn
+  hbbjl5r4: hbbjgn
+  hbbjgn: hilited_off_key_back_color
+
+  # 编辑键盘文本颜色应变配置
+  tbjl1l4: tbjgn
+  tbjl1l3: tbjgn
+  tbjl1l2: tbjgn
+  tbjl1l1: tl2l2
+  tbjl1r1: tl2r1
+  tbjl1r2: tl2r2
+  tbjl1r3: tbjgn
+  tbjl1r4: tbjgn
+  tbjl2l4: tbjgn
+  tbjl2l3: tbjgn
+  tbjl2l2: tbjgn
+  tbjl2l1: tl3l2
+  tbjl2r1: tbjgn
+  tbjl2r2: tl3r2
+  tbjl2r3: tbjgn
+  tbjl2r4: tbjgn
+  tbjl3l4: tbjgn
+  tbjl3l3: tbjgn
+  tbjl3l2: tbjgn
+  tbjl3l1: tl4l2
+  tbjl3r1: tl4r1
+  tbjl3r2: tl4r2
+  tbjl3r3: tbjgn
+  tbjl3r4: tbjgn
+  tbjl4l4: tbjgn
+  tbjl4l3: tbjgn
+  tbjl4l2: tbjgn
+  tbjl4l1: tbjgn
+  tbjl4r1: tbjgn
+  tbjl4r2: tbjgn
+  tbjl4r3: tbjgn
+  tbjl4r4: tbjgn
+  tbjl5l4: tbjgn
+  tbjl5l3: tbjgn
+  tbjl5l2: tbjgn
+  tbjl5l1: tbjgn
+  tbjl5r1: tbjgn
+  tbjl5r2: tbjgn
+  tbjl5r3: tbjgn
+  tbjl5r4: tbjgn
+  tbjgn: off_key_text_color
+
+  # 髙亮编辑键盘文本颜色应变配置
+  htbjl1l4: htbjgn
+  htbjl1l3: htbjgn
+  htbjl1l2: htbjgn
+  htbjl1l1: htl2l2
+  htbjl1r1: htl2r1
+  htbjl1r2: htl2r2
+  htbjl1r3: htbjgn
+  htbjl1r4: htbjgn
+  htbjl2l4: htbjgn
+  htbjl2l3: htbjgn
+  htbjl2l2: htbjgn
+  htbjl2l1: htl3l2
+  htbjl2r1: htbjgn
+  htbjl2r2: htl3r2
+  htbjl2r3: htbjgn
+  htbjl2r4: htbjgn
+  htbjl3l4: htbjgn
+  htbjl3l3: htbjgn
+  htbjl3l2: htbjgn
+  htbjl3l1: htl4l2
+  htbjl3r1: htl4r1
+  htbjl3r2: htl4r2
+  htbjl3r3: htbjgn
+  htbjl3r4: htbjgn
+  htbjl4l4: htbjgn
+  htbjl4l3: htbjgn
+  htbjl4l2: htbjgn
+  htbjl4l1: htbjgn
+  htbjl4r1: htbjgn
+  htbjl4r2: htbjgn
+  htbjl4r3: htbjgn
+  htbjl4r4: htbjgn
+  htbjl5l4: htbjgn
+  htbjl5l3: htbjgn
+  htbjl5l2: htbjgn
+  htbjl5l1: htbjgn
+  htbjl5r1: htbjgn
+  htbjl5r2: htbjgn
+  htbjl5r3: htbjgn
+  htbjl5r4: htbjgn
+  htbjgn: hilited_off_key_text_color
+
+  # 编辑键盘符号文本颜色应变配置
+  sbjl1l4: sbjgn
+  sbjl1l3: sbjgn
+  sbjl1l2: sbjgn
+  sbjl1l1: sl2l2
+  sbjl1r1: sl2r1
+  sbjl1r2: sl2r2
+  sbjl1r3: sbjgn
+  sbjl1r4: sbjgn
+  sbjl2l4: sbjgn
+  sbjl2l3: sbjgn
+  sbjl2l2: sbjgn
+  sbjl2l1: sl3l2
+  sbjl2r1: sbjgn
+  sbjl2r2: sl3r2
+  sbjl2r3: sbjgn
+  sbjl2r4: sbjgn
+  sbjl3l4: sbjgn
+  sbjl3l3: sbjgn
+  sbjl3l2: sbjgn
+  sbjl3l1: sl4l2
+  sbjl3r1: sl4r1
+  sbjl3r2: sl4r2
+  sbjl3r3: sbjgn
+  sbjl3r4: sbjgn
+  sbjl4l4: sbjgn
+  sbjl4l3: sbjgn
+  sbjl4l2: sbjgn
+  sbjl4l1: sbjgn
+  sbjl4r1: sbjgn
+  sbjl4r2: sbjgn
+  sbjl4r3: sbjgn
+  sbjl4r4: sbjgn
+  sbjl5l4: sbjgn
+  sbjl5l3: sbjgn
+  sbjl5l2: sbjgn
+  sbjl5l1: sbjgn
+  sbjl5r1: sbjgn
+  sbjl5r2: sbjgn
+  sbjl5r3: sbjgn
+  sbjl5r4: sbjgn
+  sbjgn: sgn
+
+# 局部颜色配置
+local_colors:
+  # 主键盘、数字键盘、编辑键盘、符号键盘
+  # 第一行
+  # 第一行中左五
+  cl1l5:
+    key_back_color: bl1l5
+    key_text_color: tl1l5
+    key_symbol_color: sl1l5
+    hilited_key_back_color: hbl1l5
+    hilited_key_text_color: htl1l5
+    hilited_key_symbol_color: hsl1l5
+
+  # 第一行中左四
+  cl1l4:
+    key_back_color: bl1l4
+    key_text_color: tl1l4
+    key_symbol_color: sl1l4
+    hilited_key_back_color: hbl1l4
+    hilited_key_text_color: htl1l4
+    hilited_key_symbol_color: hsl1l4
+
+  # 第一行中左三
+  cl1l3:
+    key_back_color: bl1l3
+    key_text_color: tl1l3
+    key_symbol_color: sl1l3
+    hilited_key_back_color: hbl1l3
+    hilited_key_text_color: htl1l3
+    hilited_key_symbol_color: hsl1l3
+
+  # 第一行中左二
+  cl1l2:
+    key_back_color: bl1l2
+    key_text_color: tl1l2
+    key_symbol_color: sl1l2
+    hilited_key_back_color: hbl1l2
+    hilited_key_text_color: htl1l2
+    hilited_key_symbol_color: hsl1l2
+
+  # 第一行中左一
+  cl1l1:
+    key_back_color: bl1l1
+    key_text_color: tl1l1
+    key_symbol_color: sl1l1
+    hilited_key_back_color: hbl1l1
+    hilited_key_text_color: htl1l1
+    hilited_key_symbol_color: hsl1l1
+
+  # 第一行中右一
+  cl1r1:
+    key_back_color: bl1r1
+    key_text_color: tl1r1
+    key_symbol_color: sl1r1
+    hilited_key_back_color: hbl1r1
+    hilited_key_text_color: htl1r1
+    hilited_key_symbol_color: hsl1r1
+
+  # 第一行中右二
+  cl1r2:
+    key_back_color: bl1r2
+    key_text_color: tl1r2
+    key_symbol_color: sl1r2
+    hilited_key_back_color: hbl1r2
+    hilited_key_text_color: htl1r2
+    hilited_key_symbol_color: hsl1r2
+
+  # 第一行中右三
+  cl1r3:
+    key_back_color: bl1r3
+    key_text_color: tl1r3
+    key_symbol_color: sl1r3
+    hilited_key_back_color: hbl1r3
+    hilited_key_text_color: htl1r3
+    hilited_key_symbol_color: hsl1r3
+
+  # 第一行中右四
+  cl1r4:
+    key_back_color: bl1r4
+    key_text_color: tl1r4
+    key_symbol_color: sl1r4
+    hilited_key_back_color: hbl1r4
+    hilited_key_text_color: htl1r4
+    hilited_key_symbol_color: hsl1r4
+
+  # 第一行中右五
+  cl1r5:
+    key_back_color: bl1r5
+    key_text_color: tl1r5
+    key_symbol_color: sl1r5
+    hilited_key_back_color: hbl1r5
+    hilited_key_text_color: htl1r5
+    hilited_key_symbol_color: hsl1r5
+
+  # 第二行
+  # 第二行中左五
+  cl2l5:
+    key_back_color: bl2l5
+    key_text_color: tl2l5
+    key_symbol_color: sl2l5
+    hilited_key_back_color: hbl2l5
+    hilited_key_text_color: htl2l5
+    hilited_key_symbol_color: hsl2l5
+
+  # 第二行中左四
+  cl2l4:
+    key_back_color: bl2l4
+    key_text_color: tl2l4
+    key_symbol_color: sl2l4
+    hilited_key_back_color: hbl2l4
+    hilited_key_text_color: htl2l4
+    hilited_key_symbol_color: hsl2l4
+
+  # 第二行中左三
+  cl2l3:
+    key_back_color: bl2l3
+    key_text_color: tl2l3
+    key_symbol_color: sl2l3
+    hilited_key_back_color: hbl2l3
+    hilited_key_text_color: htl2l3
+    hilited_key_symbol_color: hsl2l3
+
+  # 第二行中左二
+  cl2l2:
+    key_back_color: bl2l2
+    key_text_color: tl2l2
+    key_symbol_color: sl2l2
+    hilited_key_back_color: hbl2l2
+    hilited_key_text_color: htl2l2
+    hilited_key_symbol_color: hsl2l2
+
+  # 第二行中左一
+  cl2l1:
+    key_back_color: bl2l1
+    key_text_color: tl2l1
+    key_symbol_color: sl2l1
+    hilited_key_back_color: hbl2l1
+    hilited_key_text_color: htl2l1
+    hilited_key_symbol_color: hsl2l1
+
+  # 第二行中右一
+  cl2r1:
+    key_back_color: bl2r1
+    key_text_color: tl2r1
+    key_symbol_color: sl2r1
+    hilited_key_back_color: hbl2r1
+    hilited_key_text_color: htl2r1
+    hilited_key_symbol_color: hsl2r1
+
+  # 第二行中右二
+  cl2r2:
+    key_back_color: bl2r2
+    key_text_color: tl2r2
+    key_symbol_color: sl2r2
+    hilited_key_back_color: hbl2r2
+    hilited_key_text_color: htl2r2
+    hilited_key_symbol_color: hsl2r2
+
+  # 第二行中右三
+  cl2r3:
+    key_back_color: bl2r3
+    key_text_color: tl2r3
+    key_symbol_color: sl2r3
+    hilited_key_back_color: hbl2r3
+    hilited_key_text_color: htl2r3
+    hilited_key_symbol_color: hsl2r3
+
+  # 第二行中右四
+  cl2r4:
+    key_back_color: bl2r4
+    key_text_color: tl2r4
+    key_symbol_color: sl2r4
+    hilited_key_back_color: hbl2r4
+    hilited_key_text_color: htl2r4
+    hilited_key_symbol_color: hsl2r4
+
+  # 第二行中右五
+  cl2r5:
+    key_back_color: bl2r5
+    key_text_color: tl2r5
+    key_symbol_color: sl2r5
+    hilited_key_back_color: hbl2r5
+    hilited_key_text_color: htl2r5
+    hilited_key_symbol_color: hsl2r5
+
+  # 第三行
+  # 第三行中左五
+  cl3l5:
+    key_back_color: bl3l5
+    key_text_color: tl3l5
+    key_symbol_color: sl3l5
+    hilited_key_back_color: hbl3l5
+    hilited_key_text_color: htl3l5
+    hilited_key_symbol_color: hsl3l5
+
+  # 第三行中左四
+  cl3l4:
+    key_back_color: bl3l4
+    key_text_color: tl3l4
+    key_symbol_color: sl3l4
+    hilited_key_back_color: hbl3l4
+    hilited_key_text_color: htl3l4
+    hilited_key_symbol_color: hsl3l4
+
+  # 第三行中左三
+  cl3l3:
+    key_back_color: bl3l3
+    key_text_color: tl3l3
+    key_symbol_color: sl3l3
+    hilited_key_back_color: hbl3l3
+    hilited_key_text_color: htl3l3
+    hilited_key_symbol_color: hsl3l3
+
+  # 第三行中左二
+  cl3l2:
+    key_back_color: bl3l2
+    key_text_color: tl3l2
+    key_symbol_color: sl3l2
+    hilited_key_back_color: hbl3l2
+    hilited_key_text_color: htl3l2
+    hilited_key_symbol_color: hsl3l2
+
+  # 第三行中左一
+  cl3l1:
+    key_back_color: bl3l1
+    key_text_color: tl3l1
+    key_symbol_color: sl3l1
+    hilited_key_back_color: hbl3l1
+    hilited_key_text_color: htl3l1
+    hilited_key_symbol_color: hsl3l1
+
+  # 第三行中右一
+  cl3r1:
+    key_back_color: bl3r1
+    key_text_color: tl3r1
+    key_symbol_color: sl3r1
+    hilited_key_back_color: hbl3r1
+    hilited_key_text_color: htl3r1
+    hilited_key_symbol_color: hsl3r1
+
+  # 第三行中右二
+  cl3r2:
+    key_back_color: bl3r2
+    key_text_color: tl3r2
+    key_symbol_color: sl3r2
+    hilited_key_back_color: hbl3r2
+    hilited_key_text_color: htl3r2
+    hilited_key_symbol_color: hsl3r2
+
+  # 第三行中右三
+  cl3r3:
+    key_back_color: bl3r3
+    key_text_color: tl3r3
+    key_symbol_color: sl3r3
+    hilited_key_back_color: hbl3r3
+    hilited_key_text_color: htl3r3
+    hilited_key_symbol_color: hsl3r3
+
+  # 第三行中右四
+  cl3r4:
+    key_back_color: bl3r4
+    key_text_color: tl3r4
+    key_symbol_color: sl3r4
+    hilited_key_back_color: hbl3r4
+    hilited_key_text_color: htl3r4
+    hilited_key_symbol_color: hsl3r4
+
+  # 第三行中右五
+  cl3r5:
+    key_back_color: bl3r5
+    key_text_color: tl3r5
+    key_symbol_color: sl3r5
+    hilited_key_back_color: hbl3r5
+    hilited_key_text_color: htl3r5
+    hilited_key_symbol_color: hsl3r5
+
+  # 第四行
+  # 第四行中左五
+  cl4l5:
+    key_back_color: bl4l5
+    key_text_color: tl4l5
+    key_symbol_color: sl4l5
+    hilited_key_back_color: hbl4l5
+    hilited_key_text_color: htl4l5
+    hilited_key_symbol_color: hsl4l5
+
+  # 第四行中左四
+  cl4l4:
+    key_back_color: bl4l4
+    key_text_color: tl4l4
+    key_symbol_color: sl4l4
+    hilited_key_back_color: hbl4l4
+    hilited_key_text_color: htl4l4
+    hilited_key_symbol_color: hsl4l4
+
+  # 第四行中左三
+  cl4l3:
+    key_back_color: bl4l3
+    key_text_color: tl4l3
+    key_symbol_color: sl4l3
+    hilited_key_back_color: hbl4l3
+    hilited_key_text_color: htl4l3
+    hilited_key_symbol_color: hsl4l3
+
+  # 第四行中左二
+  cl4l2:
+    key_back_color: bl4l2
+    key_text_color: tl4l2
+    key_symbol_color: sl4l2
+    hilited_key_back_color: hbl4l2
+    hilited_key_text_color: htl4l2
+    hilited_key_symbol_color: hsl4l2
+
+  # 第四行中左一
+  cl4l1:
+    key_back_color: bl4l1
+    key_text_color: tl4l1
+    key_symbol_color: sl4l1
+    hilited_key_back_color: hbl4l1
+    hilited_key_text_color: htl4l1
+    hilited_key_symbol_color: hsl4l1
+
+  # 第四行中右一
+  cl4r1:
+    key_back_color: bl4r1
+    key_text_color: tl4r1
+    key_symbol_color: sl4r1
+    hilited_key_back_color: hbl4r1
+    hilited_key_text_color: htl4r1
+    hilited_key_symbol_color: hsl4r1
+
+  # 第四行中右二
+  cl4r2:
+    key_back_color: bl4r2
+    key_text_color: tl4r2
+    key_symbol_color: sl4r2
+    hilited_key_back_color: hbl4r2
+    hilited_key_text_color: htl4r2
+    hilited_key_symbol_color: hsl4r2
+
+  # 第四行中右三
+  cl4r3:
+    key_back_color: bl4r3
+    key_text_color: tl4r3
+    key_symbol_color: sl4r3
+    hilited_key_back_color: hbl4r3
+    hilited_key_text_color: htl4r3
+    hilited_key_symbol_color: hsl4r3
+
+  # 第四行中右四
+  cl4r4:
+    key_back_color: bl4r4
+    key_text_color: tl4r4
+    key_symbol_color: sl4r4
+    hilited_key_back_color: hbl4r4
+    hilited_key_text_color: htl4r4
+    hilited_key_symbol_color: hsl4r4
+
+  # 第四行中右五
+  cl4r5:
+    key_back_color: bl4r5
+    key_text_color: tl4r5
+    key_symbol_color: sl4r5
+    hilited_key_back_color: hbl4r5
+    hilited_key_text_color: htl4r5
+    hilited_key_symbol_color: hsl4r5
+
+  # 第五行
+  # 第五行中左五
+  cl5l5:
+    key_back_color: bl5l5
+    key_text_color: tl5l5
+    key_symbol_color: sl5l5
+    hilited_key_back_color: hbl5l5
+    hilited_key_text_color: htl5l5
+    hilited_key_symbol_color: hsl5l5
+
+  # 第五行中左四
+  cl5l4:
+    key_back_color: bl5l4
+    key_text_color: tl5l4
+    key_symbol_color: sl5l4
+    hilited_key_back_color: hbl5l4
+    hilited_key_text_color: htl5l4
+    hilited_key_symbol_color: hsl5l4
+
+  # 第五行中左三
+  cl5l3:
+    key_back_color: bl5l3
+    key_text_color: tl5l3
+    key_symbol_color: sl5l3
+    hilited_key_back_color: hbl5l3
+    hilited_key_text_color: htl5l3
+    hilited_key_symbol_color: hsl5l3
+
+  # 第五行中左二
+  cl5l2:
+    key_back_color: bl5l2
+    key_text_color: tl5l2
+    key_symbol_color: sl5l2
+    hilited_key_back_color: hbl5l2
+    hilited_key_text_color: htl5l2
+    hilited_key_symbol_color: hsl5l2
+
+  # 第五行中左一
+  cl5l1:
+    key_back_color: bl5l1
+    key_text_color: tl5l1
+    key_symbol_color: sl5l1
+    hilited_key_back_color: hbl5l1
+    hilited_key_text_color: htl5l1
+    hilited_key_symbol_color: hsl5l1
+
+  # 第五行中右一
+  cl5r1:
+    key_back_color: bl5r1
+    key_text_color: tl5r1
+    key_symbol_color: sl5r1
+    hilited_key_back_color: hbl5r1
+    hilited_key_text_color: htl5r1
+    hilited_key_symbol_color: hsl5r1
+
+  # 第五行中右二
+  cl5r2:
+    key_back_color: bl5r2
+    key_text_color: tl5r2
+    key_symbol_color: sl5r2
+    hilited_key_back_color: hbl5r2
+    hilited_key_text_color: htl5r2
+    hilited_key_symbol_color: hsl5r2
+
+
+  # 第五行中右三
+  cl5r3:
+    key_back_color: bl5r3
+    key_text_color: tl5r3
+    key_symbol_color: sl5r3
+    hilited_key_back_color: hbl5r3
+    hilited_key_text_color: htl5r3
+    hilited_key_symbol_color: hsl5r3
+
+  # 第五行中右四
+  cl5r4:
+    key_back_color: bl5r4
+    key_text_color: tl5r4
+    key_symbol_color: sl5r4
+    hilited_key_back_color: hbl5r4
+    hilited_key_text_color: htl5r4
+    hilited_key_symbol_color: hsl5r4
+
+  # 第五行中右五
+  cl5r5:
+    key_back_color: bl5r5
+    key_text_color: tl5r5
+    key_symbol_color: sl5r5
+    hilited_key_back_color: hbl5r5
+    hilited_key_text_color: htl5r5
+    hilited_key_symbol_color: hsl5r5
+
+  # 第六行
+  # 第六行中右五
+  cl6l5:
+    key_back_color: bl6l5
+    key_text_color: tl6l5
+    key_symbol_color: sl6l5
+    hilited_key_back_color: hbl6l5
+    hilited_key_text_color: htl6l5
+    hilited_key_symbol_color: hsl6l5
+
+  # 第六行中左四
+  cl6l4:
+    key_back_color: bl6l4
+    key_text_color: tl6l4
+    key_symbol_color: sl6l4
+    hilited_key_back_color: hbl6l4
+    hilited_key_text_color: htl6l4
+    hilited_key_symbol_color: hsl6l4
+
+  # 第六行中左三
+  cl6l3:
+    key_back_color: bl6l3
+    key_text_color: tl6l3
+    key_symbol_color: sl6l3
+    hilited_key_back_color: hbl6l3
+    hilited_key_text_color: htl6l3
+    hilited_key_symbol_color: hsl6l3
+
+  # 第六行中左二
+  cl6l2:
+    key_back_color: bl6l2
+    key_text_color: tl6l2
+    key_symbol_color: sl6l2
+    hilited_key_back_color: hbl6l2
+    hilited_key_text_color: htl6l2
+    hilited_key_symbol_color: hsl6l2
+
+  # 第六行中左一
+  cl6l1:
+    key_back_color: bl6l1
+    key_text_color: tl6l1
+    key_symbol_color: sl6l1
+    hilited_key_back_color: hbl6l1
+    hilited_key_text_color: htl6l1
+    hilited_key_symbol_color: hsl6l1
+
+  # 第六行中右一
+  cl6r1:
+    key_back_color: bl6r1
+    key_text_color: tl6r1
+    key_symbol_color: sl6r1
+    hilited_key_back_color: hbl6r1
+    hilited_key_text_color: htl6r1
+    hilited_key_symbol_color: hsl6r1
+
+  # 第六行中右二
+  cl6r2:
+    key_back_color: bl6r2
+    key_text_color: tl6r2
+    key_symbol_color: sl6r2
+    hilited_key_back_color: hbl6r2
+    hilited_key_text_color: htl6r2
+    hilited_key_symbol_color: hsl6r2
+
+  # 第六行中右三
+  cl6r3:
+    key_back_color: bl6r3
+    key_text_color: tl6r3
+    key_symbol_color: sl6r3
+    hilited_key_back_color: hbl6r3
+    hilited_key_text_color: htl6r3
+    hilited_key_symbol_color: hsl6r3
+
+  # 第六行中右四
+  cl6r4:
+    key_back_color: bl6r4
+    key_text_color: tl6r4
+    key_symbol_color: sl6r4
+    hilited_key_back_color: hbl6r4
+    hilited_key_text_color: htl6r4
+    hilited_key_symbol_color: hsl6r4
+
+  # 第六行中右五
+  cl6r5:
+    key_back_color: bl6r5
+    key_text_color: tl6r5
+    key_symbol_color: sl6r5
+    hilited_key_back_color: hbl6r5
+    hilited_key_text_color: htl6r5
+    hilited_key_symbol_color: hsl6r5
+
+  # 上翻页键颜色
+  csfy:
+    key_back_color: bsfy
+    key_text_color: tsfy
+    key_symbol_color: ssfy
+    hilited_key_back_color: hbsfy
+    hilited_key_text_color: htsfy
+    hilited_key_symbol_color: hssfy
+
+  # 下翻页键颜色
+  cxfy:
+    key_back_color: bxfy
+    key_text_color: txfy
+    key_symbol_color: sxfy
+    hilited_key_back_color: hbxfy
+    hilited_key_text_color: htxfy
+    hilited_key_symbol_color: hsxfy
+
+  # 功能键符号颜色
+  cgn:
+    key_back_color: bgn
+    key_text_color: tgn
+    key_symbol_color: sgn
+    hilited_key_back_color: hbgn
+    hilited_key_text_color: htgn
+    hilited_key_symbol_color: hsgn
+
+  # shift键
+  csd:
+    key_back_color: bsd
+    key_text_color: tsd
+    key_symbol_color: ssd
+    hilited_key_back_color: hbsd
+    hilited_key_text_color: htsd
+    hilited_key_symbol_color: hssd
+
+  # 逗号键
+  cdh:
+    key_back_color: bdh
+    key_text_color: tdh
+    key_symbol_color: sdh
+    hilited_key_back_color: hbdh
+    hilited_key_text_color: htdh
+    hilited_key_symbol_color: hsdh
+
+  # 编辑键
+  cbj:
+    key_back_color: bbj
+    key_text_color: tbj
+    key_symbol_color: sbj
+    hilited_key_back_color: hbbj
+    hilited_key_text_color: htbj
+    hilited_key_symbol_color: hsbj
+
+  # 句号键
+  cjh:
+    key_back_color: bjh
+    key_text_color: tjh
+    key_symbol_color: sjh
+    hilited_key_back_color: hbjh
+    hilited_key_text_color: htjh
+    hilited_key_symbol_color: hsjh
+
+  # 删除键
+  csc:
+    key_back_color: bsc
+    key_text_color: tsc
+    key_symbol_color: ssc
+    hilited_key_back_color: hbsc
+    hilited_key_text_color: htsc
+    hilited_key_symbol_color: hssc
+
+  # 数字键
+  csz:
+    key_back_color: bsz
+    key_text_color: tsz
+    key_symbol_color: ssz
+    hilited_key_back_color: hbsz
+    hilited_key_text_color: htsz
+    hilited_key_symbol_color: hssz
+
+  # 符号键
+  cfh:
+    key_back_color: bfh
+    key_text_color: tfh
+    key_symbol_color: sfh
+    hilited_key_back_color: hbfh
+    hilited_key_text_color: htfh
+    hilited_key_symbol_color: hsfh
+
+  # 中英切换键
+  czy:
+    key_back_color: bzy
+    key_text_color: tzy
+    key_symbol_color: szy
+    hilited_key_back_color: hbzy
+    hilited_key_text_color: htzy
+    hilited_key_symbol_color: hszy
+
+  # 空格键
+  ckg:
+    key_back_color: bkg
+    key_text_color: tkg
+    key_symbol_color: skg
+    hilited_key_back_color: hbkg
+    hilited_key_text_color: htkg
+    hilited_key_symbol_color: hskg
+
+  # 回车键
+  chc:
+    key_back_color: bhc
+    key_text_color: thc
+    key_symbol_color: shc
+    hilited_key_back_color: hbhc
+    hilited_key_text_color: hthc
+    hilited_key_symbol_color: hshc
+
+  # 数字键盘
+  # 第一行
+
+  # 第一行中左四
+  cszl1l4:
+    key_back_color: bszl1l4
+    key_text_color: tszl1l4
+    key_symbol_color: sszl1l4
+    hilited_key_back_color: hbszl1l4
+    hilited_key_text_color: htszl1l4
+    hilited_key_symbol_color: hsszl1l4
+
+  # 第一行中左三
+  cszl1l3:
+    key_back_color: bszl1l3
+    key_text_color: tszl1l3
+    key_symbol_color: sszl1l3
+    hilited_key_back_color: hbszl1l3
+    hilited_key_text_color: htszl1l3
+    hilited_key_symbol_color: hsszl1l3
+
+  # 第一行中左二
+  cszl1l2:
+    key_back_color: bszl1l2
+    key_text_color: tszl1l2
+    key_symbol_color: sszl1l2
+    hilited_key_back_color: hbszl1l2
+    hilited_key_text_color: htszl1l2
+    hilited_key_symbol_color: hsszl1l2
+
+  # 第一行中左一
+  cszl1l1:
+    key_back_color: bszl1l1
+    key_text_color: tszl1l1
+    key_symbol_color: sszl1l1
+    hilited_key_back_color: hbszl1l1
+    hilited_key_text_color: htszl1l1
+    hilited_key_symbol_color: hsszl1l1
+
+  # 第一行中右一
+  cszl1r1:
+    key_back_color: bszl1r1
+    key_text_color: tszl1r1
+    key_symbol_color: sszl1r1
+    hilited_key_back_color: hbszl1r1
+    hilited_key_text_color: htszl1r1
+    hilited_key_symbol_color: hsszl1r1
+
+  # 第一行中右二
+  cszl1r2:
+    key_back_color: bszl1r2
+    key_text_color: tszl1r2
+    key_symbol_color: sszl1r2
+    hilited_key_back_color: hbszl1r2
+    hilited_key_text_color: htszl1r2
+    hilited_key_symbol_color: hsszl1r2
+
+  # 第一行中右三
+  cszl1r3:
+    key_back_color: bszl1r3
+    key_text_color: tszl1r3
+    key_symbol_color: sszl1r3
+    hilited_key_back_color: hbszl1r3
+    hilited_key_text_color: htszl1r3
+    hilited_key_symbol_color: hsszl1r3
+
+  # 第一行中右四
+  cszl1r4:
+    key_back_color: bszl1r4
+    key_text_color: tszl1r4
+    key_symbol_color: sszl1r4
+    hilited_key_back_color: hbszl1r4
+    hilited_key_text_color: htszl1r4
+    hilited_key_symbol_color: hsszl1r4
+
+  # 第二行
+  # 第二行中左四
+  cszl2l4:
+    key_back_color: bszl2l4
+    key_text_color: tszl2l4
+    key_symbol_color: sszl2l4
+    hilited_key_back_color: hbszl2l4
+    hilited_key_text_color: htszl2l4
+    hilited_key_symbol_color: hsszl2l4
+
+
+  # 第二行中左三
+  cszl2l3:
+    key_back_color: bszl2l3
+    key_text_color: tszl2l3
+    key_symbol_color: sszl2l3
+    hilited_key_back_color: hbszl2l3
+    hilited_key_text_color: htszl2l3
+    hilited_key_symbol_color: hsszl2l3
+
+  # 第二行中左二
+  cszl2l2:
+    key_back_color: bszl2l2
+    key_text_color: tszl2l2
+    key_symbol_color: sszl2l2
+    hilited_key_back_color: hbszl2l2
+    hilited_key_text_color: htszl2l2
+    hilited_key_symbol_color: hsszl2l2
+
+  # 第二行中左一
+  cszl2l1:
+    key_back_color: bszl2l1
+    key_text_color: tszl2l1
+    key_symbol_color: sszl2l1
+    hilited_key_back_color: hbszl2l1
+    hilited_key_text_color: htszl2l1
+    hilited_key_symbol_color: hsszl2l1
+
+  # 第二行中右一
+  cszl2r1:
+    key_back_color: bszl2r1
+    key_text_color: tszl2r1
+    key_symbol_color: sszl2r1
+    hilited_key_back_color: hbszl2r1
+    hilited_key_text_color: htszl2r1
+    hilited_key_symbol_color: hsszl2r1
+
+  # 第二行中右二
+  cszl2r2:
+    key_back_color: bszl2r2
+    key_text_color: tszl2r2
+    key_symbol_color: sszl2r2
+    hilited_key_back_color: hbszl2r2
+    hilited_key_text_color: htszl2r2
+    hilited_key_symbol_color: hsszl2r2
+
+  # 第二行中右三
+  cszl2r3:
+    key_back_color: bszl2r3
+    key_text_color: tszl2r3
+    key_symbol_color: sszl2r3
+    hilited_key_back_color: hbszl2r3
+    hilited_key_text_color: htszl2r3
+    hilited_key_symbol_color: hsszl2r3
+
+  # 第二行中右四
+  cszl2r4:
+    key_back_color: bszl2r4
+    key_text_color: tszl2r4
+    key_symbol_color: sszl2r4
+    hilited_key_back_color: hbszl2r4
+    hilited_key_text_color: htszl2r4
+    hilited_key_symbol_color: hsszl2r4
+
+  # 第三行
+  # 第三行中左四
+  cszl3l4:
+    key_back_color: bszl3l4
+    key_text_color: tszl3l4
+    key_symbol_color: sszl3l4
+    hilited_key_back_color: hbszl3l4
+    hilited_key_text_color: htszl3l4
+    hilited_key_symbol_color: hsszl3l4
+
+  # 第三行中左三
+  cszl3l3:
+    key_back_color: bszl3l3
+    key_text_color: tszl3l3
+    key_symbol_color: sszl3l3
+    hilited_key_back_color: hbszl3l3
+    hilited_key_text_color: htszl3l3
+    hilited_key_symbol_color: hsszl3l3
+
+  # 第三行中左二
+  cszl3l2:
+    key_back_color: bszl3l2
+    key_text_color: tszl3l2
+    key_symbol_color: sszl3l2
+    hilited_key_back_color: hbszl3l2
+    hilited_key_text_color: htszl3l2
+    hilited_key_symbol_color: hsszl3l2
+
+  # 第三行中左一
+  cszl3l1:
+    key_back_color: bszl3l1
+    key_text_color: tszl3l1
+    key_symbol_color: sszl3l1
+    hilited_key_back_color: hbszl3l1
+    hilited_key_text_color: htszl3l1
+    hilited_key_symbol_color: hsszl3l1
+
+  # 第三行中右一
+  cszl3r1:
+    key_back_color: bszl3r1
+    key_text_color: tszl3r1
+    key_symbol_color: sszl3r1
+    hilited_key_back_color: hbszl3r1
+    hilited_key_text_color: htszl3r1
+    hilited_key_symbol_color: hsszl3r1
+
+  # 第三行中右二
+  cszl3r2:
+    key_back_color: bszl3r2
+    key_text_color: tszl3r2
+    key_symbol_color: sszl3r2
+    hilited_key_back_color: hbszl3r2
+    hilited_key_text_color: htszl3r2
+    hilited_key_symbol_color: hsszl3r2
+
+  # 第三行中右三
+  cszl3r3:
+    key_back_color: bszl3r3
+    key_text_color: tszl3r3
+    key_symbol_color: sszl3r3
+    hilited_key_back_color: hbszl3r3
+    hilited_key_text_color: htszl3r3
+    hilited_key_symbol_color: hsszl3r3
+
+  # 第三行中右四
+  cszl3r4:
+    key_back_color: bszl3r4
+    key_text_color: tszl3r4
+    key_symbol_color: sszl3r4
+    hilited_key_back_color: hbszl3r4
+    hilited_key_text_color: htszl3r4
+    hilited_key_symbol_color: hsszl3r4
+
+  # 第四行
+  # 第四行中左四
+  cszl4l4:
+    key_back_color: bszl4l4
+    key_text_color: tszl4l4
+    key_symbol_color: sszl4l4
+    hilited_key_back_color: hbszl4l4
+    hilited_key_text_color: htszl4l4
+    hilited_key_symbol_color: hsszl4l4
+
+  # 第四行中左三
+  cszl4l3:
+    key_back_color: bszl4l3
+    key_text_color: tszl4l3
+    key_symbol_color: sszl4l3
+    hilited_key_back_color: hbszl4l3
+    hilited_key_text_color: htszl4l3
+    hilited_key_symbol_color: hsszl4l3
+
+  # 第四行中左二
+  cszl4l2:
+    key_back_color: bszl4l2
+    key_text_color: tszl4l2
+    key_symbol_color: sszl4l2
+    hilited_key_back_color: hbszl4l2
+    hilited_key_text_color: htszl4l2
+    hilited_key_symbol_color: hsszl4l2
+
+  # 第四行中左一
+  cszl4l1:
+    key_back_color: bszl4l1
+    key_text_color: tszl4l1
+    key_symbol_color: sszl4l1
+    hilited_key_back_color: hbszl4l1
+    hilited_key_text_color: htszl4l1
+    hilited_key_symbol_color: hsszl4l1
+
+  # 第四行中右一
+  cszl4r1:
+    key_back_color: bszl4r1
+    key_text_color: tszl4r1
+    key_symbol_color: sszl4r1
+    hilited_key_back_color: hbszl4r1
+    hilited_key_text_color: htszl4r1
+    hilited_key_symbol_color: hsszl4r1
+
+  # 第四行中右二
+  cszl4r2:
+    key_back_color: bszl4r2
+    key_text_color: tszl4r2
+    key_symbol_color: sszl4r2
+    hilited_key_back_color: hbszl4r2
+    hilited_key_text_color: htszl4r2
+    hilited_key_symbol_color: hsszl4r2
+
+  # 第四行中右三
+  cszl4r3:
+    key_back_color: bszl4r3
+    key_text_color: tszl4r3
+    key_symbol_color: sszl4r3
+    hilited_key_back_color: hbszl4r3
+    hilited_key_text_color: htszl4r3
+    hilited_key_symbol_color: hsszl4r3
+
+  # 第四行中右四
+  cszl4r4:
+    key_back_color: bszl4r4
+    key_text_color: tszl4r4
+    key_symbol_color: sszl4r4
+    hilited_key_back_color: hbszl4r4
+    hilited_key_text_color: htszl4r4
+    hilited_key_symbol_color: hsszl4r4
+
+  # 第五行
+  # 第五行中左四
+  cszl5l4:
+    key_back_color: bszl5l4
+    key_text_color: tszl5l4
+    key_symbol_color: sszl5l4
+    hilited_key_back_color: hbszl5l4
+    hilited_key_text_color: htszl5l4
+    hilited_key_symbol_color: hsszl5l4
+
+  # 第五行中左三
+  cszl5l3:
+    key_back_color: bszl5l3
+    key_text_color: tszl5l3
+    key_symbol_color: sszl5l3
+    hilited_key_back_color: hbszl5l3
+    hilited_key_text_color: htszl5l3
+    hilited_key_symbol_color: hsszl5l3
+
+  # 第五行中左二
+  cszl5l2:
+    key_back_color: bszl5l2
+    key_text_color: tszl5l2
+    key_symbol_color: sszl5l2
+    hilited_key_back_color: hbszl5l2
+    hilited_key_text_color: htszl5l2
+    hilited_key_symbol_color: hsszl5l2
+
+  # 第五行中左一
+  cszl5l1:
+    key_back_color: bszl5l1
+    key_text_color: tszl5l1
+    key_symbol_color: sszl5l1
+    hilited_key_back_color: hbszl5l1
+    hilited_key_text_color: htszl5l1
+    hilited_key_symbol_color: hsszl5l1
+
+  # 第五行中右一
+  cszl5r1:
+    key_back_color: bszl5r1
+    key_text_color: tszl5r1
+    key_symbol_color: sszl5r1
+    hilited_key_back_color: hbszl5r1
+    hilited_key_text_color: htszl5r1
+    hilited_key_symbol_color: hsszl5r1
+
+  # 第五行中右二
+  cszl5r2:
+    key_back_color: bszl5r2
+    key_text_color: tszl5r2
+    key_symbol_color: sszl5r2
+    hilited_key_back_color: hbszl5r2
+    hilited_key_text_color: htszl5r2
+    hilited_key_symbol_color: hsszl5r2
+
+  # 第五行中右三
+  cszl5r3:
+    key_back_color: bszl5r3
+    key_text_color: tszl5r3
+    key_symbol_color: sszl5r3
+    hilited_key_back_color: hbszl5r3
+    hilited_key_text_color: htszl5r3
+    hilited_key_symbol_color: hsszl5r3
+
+  # 第五行中右四
+  cszl5r4:
+    key_back_color: bszl5r4
+    key_text_color: tszl5r4
+    key_symbol_color: sszl5r4
+    hilited_key_back_color: hbszl5r4
+    hilited_key_text_color: htszl5r4
+    hilited_key_symbol_color: hsszl5r4
+
+  # 编辑键盘
+  # 第一行
+
+  # 第一行中左四
+  cbjl1l4:
+    key_back_color: bbjl1l4
+    key_text_color: tbjl1l4
+    key_symbol_color: sbjl1l4
+    hilited_key_back_color: hbbjl1l4
+    hilited_key_text_color: htbjl1l4
+    hilited_key_symbol_color: hsbjl1l4
+
+  # 第一行中左三
+  cbjl1l3:
+    key_back_color: bbjl1l3
+    key_text_color: tbjl1l3
+    key_symbol_color: sbjl1l3
+    hilited_key_back_color: hbbjl1l3
+    hilited_key_text_color: htbjl1l3
+    hilited_key_symbol_color: hsbjl1l3
+
+  # 第一行中左二
+  cbjl1l2:
+    key_back_color: bbjl1l2
+    key_text_color: tbjl1l2
+    key_symbol_color: sbjl1l2
+    hilited_key_back_color: hbbjl1l2
+    hilited_key_text_color: htbjl1l2
+    hilited_key_symbol_color: hsbjl1l2
+
+  # 第一行中左一
+  cbjl1l1:
+    key_back_color: bbjl1l1
+    key_text_color: tbjl1l1
+    key_symbol_color: sbjl1l1
+    hilited_key_back_color: hbbjl1l1
+    hilited_key_text_color: htbjl1l1
+    hilited_key_symbol_color: hsbjl1l1
+
+  # 第一行中右一
+  cbjl1r1:
+    key_back_color: bbjl1r1
+    key_text_color: tbjl1r1
+    key_symbol_color: sbjl1r1
+    hilited_key_back_color: hbbjl1r1
+    hilited_key_text_color: htbjl1r1
+    hilited_key_symbol_color: hsbjl1r1
+
+  # 第一行中右二
+  cbjl1r2:
+    key_back_color: bbjl1r2
+    key_text_color: tbjl1r2
+    key_symbol_color: sbjl1r2
+    hilited_key_back_color: hbbjl1r2
+    hilited_key_text_color: htbjl1r2
+    hilited_key_symbol_color: hsbjl1r2
+
+  # 第一行中右三
+  cbjl1r3:
+    key_back_color: bbjl1r3
+    key_text_color: tbjl1r3
+    key_symbol_color: sbjl1r3
+    hilited_key_back_color: hbbjl1r3
+    hilited_key_text_color: htbjl1r3
+    hilited_key_symbol_color: hsbjl1r3
+
+  # 第一行中右四
+  cbjl1r4:
+    key_back_color: bbjl1r4
+    key_text_color: tbjl1r4
+    key_symbol_color: sbjl1r4
+    hilited_key_back_color: hbbjl1r4
+    hilited_key_text_color: htbjl1r4
+    hilited_key_symbol_color: hsbjl1r4
+
+  # 第二行
+  # 第二行中左四
+  cbjl2l4:
+    key_back_color: bbjl2l4
+    key_text_color: tbjl2l4
+    key_symbol_color: sbjl2l4
+    hilited_key_back_color: hbbjl2l4
+    hilited_key_text_color: htbjl2l4
+    hilited_key_symbol_color: hsbjl2l4
+
+
+  # 第二行中左三
+  cbjl2l3:
+    key_back_color: bbjl2l3
+    key_text_color: tbjl2l3
+    key_symbol_color: sbjl2l3
+    hilited_key_back_color: hbbjl2l3
+    hilited_key_text_color: htbjl2l3
+    hilited_key_symbol_color: hsbjl2l3
+
+  # 第二行中左二
+  cbjl2l2:
+    key_back_color: bbjl2l2
+    key_text_color: tbjl2l2
+    key_symbol_color: sbjl2l2
+    hilited_key_back_color: hbbjl2l2
+    hilited_key_text_color: htbjl2l2
+    hilited_key_symbol_color: hsbjl2l2
+
+  # 第二行中左一
+  cbjl2l1:
+    key_back_color: bbjl2l1
+    key_text_color: tbjl2l1
+    key_symbol_color: sbjl2l1
+    hilited_key_back_color: hbbjl2l1
+    hilited_key_text_color: htbjl2l1
+    hilited_key_symbol_color: hsbjl2l1
+
+  # 第二行中右一
+  cbjl2r1:
+    key_back_color: bbjl2r1
+    key_text_color: tbjl2r1
+    key_symbol_color: sbjl2r1
+    hilited_key_back_color: hbbjl2r1
+    hilited_key_text_color: htbjl2r1
+    hilited_key_symbol_color: hsbjl2r1
+
+  # 第二行中右二
+  cbjl2r2:
+    key_back_color: bbjl2r2
+    key_text_color: tbjl2r2
+    key_symbol_color: sbjl2r2
+    hilited_key_back_color: hbbjl2r2
+    hilited_key_text_color: htbjl2r2
+    hilited_key_symbol_color: hsbjl2r2
+
+  # 第二行中右三
+  cbjl2r3:
+    key_back_color: bbjl2r3
+    key_text_color: tbjl2r3
+    key_symbol_color: sbjl2r3
+    hilited_key_back_color: hbbjl2r3
+    hilited_key_text_color: htbjl2r3
+    hilited_key_symbol_color: hsbjl2r3
+
+  # 第二行中右四
+  cbjl2r4:
+    key_back_color: bbjl2r4
+    key_text_color: tbjl2r4
+    key_symbol_color: sbjl2r4
+    hilited_key_back_color: hbbjl2r4
+    hilited_key_text_color: htbjl2r4
+    hilited_key_symbol_color: hsbjl2r4
+
+  # 第三行
+  # 第三行中左四
+  cbjl3l4:
+    key_back_color: bbjl3l4
+    key_text_color: tbjl3l4
+    key_symbol_color: sbjl3l4
+    hilited_key_back_color: hbbjl3l4
+    hilited_key_text_color: htbjl3l4
+    hilited_key_symbol_color: hsbjl3l4
+
+  # 第三行中左三
+  cbjl3l3:
+    key_back_color: bbjl3l3
+    key_text_color: tbjl3l3
+    key_symbol_color: sbjl3l3
+    hilited_key_back_color: hbbjl3l3
+    hilited_key_text_color: htbjl3l3
+    hilited_key_symbol_color: hsbjl3l3
+
+  # 第三行中左二
+  cbjl3l2:
+    key_back_color: bbjl3l2
+    key_text_color: tbjl3l2
+    key_symbol_color: sbjl3l2
+    hilited_key_back_color: hbbjl3l2
+    hilited_key_text_color: htbjl3l2
+    hilited_key_symbol_color: hsbjl3l2
+
+  # 第三行中左一
+  cbjl3l1:
+    key_back_color: bbjl3l1
+    key_text_color: tbjl3l1
+    key_symbol_color: sbjl3l1
+    hilited_key_back_color: hbbjl3l1
+    hilited_key_text_color: htbjl3l1
+    hilited_key_symbol_color: hsbjl3l1
+
+  # 第三行中右一
+  cbjl3r1:
+    key_back_color: bbjl3r1
+    key_text_color: tbjl3r1
+    key_symbol_color: sbjl3r1
+    hilited_key_back_color: hbbjl3r1
+    hilited_key_text_color: htbjl3r1
+    hilited_key_symbol_color: hsbjl3r1
+
+  # 第三行中右二
+  cbjl3r2:
+    key_back_color: bbjl3r2
+    key_text_color: tbjl3r2
+    key_symbol_color: sbjl3r2
+    hilited_key_back_color: hbbjl3r2
+    hilited_key_text_color: htbjl3r2
+    hilited_key_symbol_color: hsbjl3r2
+
+  # 第三行中右三
+  cbjl3r3:
+    key_back_color: bbjl3r3
+    key_text_color: tbjl3r3
+    key_symbol_color: sbjl3r3
+    hilited_key_back_color: hbbjl3r3
+    hilited_key_text_color: htbjl3r3
+    hilited_key_symbol_color: hsbjl3r3
+
+  # 第三行中右四
+  cbjl3r4:
+    key_back_color: bbjl3r4
+    key_text_color: tbjl3r4
+    key_symbol_color: sbjl3r4
+    hilited_key_back_color: hbbjl3r4
+    hilited_key_text_color: htbjl3r4
+    hilited_key_symbol_color: hsbjl3r4
+
+  # 第四行
+  # 第四行中左四
+  cbjl4l4:
+    key_back_color: bbjl4l4
+    key_text_color: tbjl4l4
+    key_symbol_color: sbjl4l4
+    hilited_key_back_color: hbbjl4l4
+    hilited_key_text_color: htbjl4l4
+    hilited_key_symbol_color: hsbjl4l4
+
+  # 第四行中左三
+  cbjl4l3:
+    key_back_color: bbjl4l3
+    key_text_color: tbjl4l3
+    key_symbol_color: sbjl4l3
+    hilited_key_back_color: hbbjl4l3
+    hilited_key_text_color: htbjl4l3
+    hilited_key_symbol_color: hsbjl4l3
+
+  # 第四行中左二
+  cbjl4l2:
+    key_back_color: bbjl4l2
+    key_text_color: tbjl4l2
+    key_symbol_color: sbjl4l2
+    hilited_key_back_color: hbbjl4l2
+    hilited_key_text_color: htbjl4l2
+    hilited_key_symbol_color: hsbjl4l2
+
+  # 第四行中左一
+  cbjl4l1:
+    key_back_color: bbjl4l1
+    key_text_color: tbjl4l1
+    key_symbol_color: sbjl4l1
+    hilited_key_back_color: hbbjl4l1
+    hilited_key_text_color: htbjl4l1
+    hilited_key_symbol_color: hsbjl4l1
+
+  # 第四行中右一
+  cbjl4r1:
+    key_back_color: bbjl4r1
+    key_text_color: tbjl4r1
+    key_symbol_color: sbjl4r1
+    hilited_key_back_color: hbbjl4r1
+    hilited_key_text_color: htbjl4r1
+    hilited_key_symbol_color: hsbjl4r1
+
+  # 第四行中右二
+  cbjl4r2:
+    key_back_color: bbjl4r2
+    key_text_color: tbjl4r2
+    key_symbol_color: sbjl4r2
+    hilited_key_back_color: hbbjl4r2
+    hilited_key_text_color: htbjl4r2
+    hilited_key_symbol_color: hsbjl4r2
+
+  # 第四行中右三
+  cbjl4r3:
+    key_back_color: bbjl4r3
+    key_text_color: tbjl4r3
+    key_symbol_color: sbjl4r3
+    hilited_key_back_color: hbbjl4r3
+    hilited_key_text_color: htbjl4r3
+    hilited_key_symbol_color: hsbjl4r3
+
+  # 第四行中右四
+  cbjl4r4:
+    key_back_color: bbjl4r4
+    key_text_color: tbjl4r4
+    key_symbol_color: sbjl4r4
+    hilited_key_back_color: hbbjl4r4
+    hilited_key_text_color: htbjl4r4
+    hilited_key_symbol_color: hsbjl4r4
+
+  # 第五行
+  # 第五行中左四
+  cbjl5l4:
+    key_back_color: bbjl5l4
+    key_text_color: tbjl5l4
+    key_symbol_color: sbjl5l4
+    hilited_key_back_color: hbbjl5l4
+    hilited_key_text_color: htbjl5l4
+    hilited_key_symbol_color: hsbjl5l4
+
+  # 第五行中左三
+  cbjl5l3:
+    key_back_color: bbjl5l3
+    key_text_color: tbjl5l3
+    key_symbol_color: sbjl5l3
+    hilited_key_back_color: hbbjl5l3
+    hilited_key_text_color: htbjl5l3
+    hilited_key_symbol_color: hsbjl5l3
+
+  # 第五行中左二
+  cbjl5l2:
+    key_back_color: bbjl5l2
+    key_text_color: tbjl5l2
+    key_symbol_color: sbjl5l2
+    hilited_key_back_color: hbbjl5l2
+    hilited_key_text_color: htbjl5l2
+    hilited_key_symbol_color: hsbjl5l2
+
+  # 第五行中左一
+  cbjl5l1:
+    key_back_color: bbjl5l1
+    key_text_color: tbjl5l1
+    key_symbol_color: sbjl5l1
+    hilited_key_back_color: hbbjl5l1
+    hilited_key_text_color: htbjl5l1
+    hilited_key_symbol_color: hsbjl5l1
+
+  # 第五行中右一
+  cbjl5r1:
+    key_back_color: bbjl5r1
+    key_text_color: tbjl5r1
+    key_symbol_color: sbjl5r1
+    hilited_key_back_color: hbbjl5r1
+    hilited_key_text_color: htbjl5r1
+    hilited_key_symbol_color: hsbjl5r1
+
+  # 第五行中右二
+  cbjl5r2:
+    key_back_color: bbjl5r2
+    key_text_color: tbjl5r2
+    key_symbol_color: sbjl5r2
+    hilited_key_back_color: hbbjl5r2
+    hilited_key_text_color: htbjl5r2
+    hilited_key_symbol_color: hsbjl5r2
+
+  # 第五行中右三
+  cbjl5r3:
+    key_back_color: bbjl5r3
+    key_text_color: tbjl5r3
+    key_symbol_color: sbjl5r3
+    hilited_key_back_color: hbbjl5r3
+    hilited_key_text_color: htbjl5r3
+    hilited_key_symbol_color: hsbjl5r3
+
+  # 第五行中右四
+  cbjl5r4:
+    key_back_color: bbjl5r4
+    key_text_color: tbjl5r4
+    key_symbol_color: sbjl5r4
+    hilited_key_back_color: hbbjl5r4
+    hilited_key_text_color: htbjl5r4
+    hilited_key_symbol_color: hsbjl5r4
+
+  # 图释菜单键颜色
+  cbf:
+    key_back_color: bbf
+    key_text_color: tbf
+
+# 颜色配置
+colors:
+  # 01_biaozhun 简·标准
+  0101: &c0101 0xff000000 # 黑
+  0102: &c0102 0xff3266a0 # 青蓝
+  0103: &c0103 0xffffbb22 # 黄
+  0104: &c0104 0xffe04040 # 红
+  0105: &c0105 0xffe1e3e7 # 浅灰
+  0105x: &c0105x 0x00 # 白(透)
+  0106: &c0106 0x99000000 # 浅黑
+  0107: &c0107 0xff5cb05c # 豆绿
+  0108: &c0108 0xffffffff # 纯白
+  0108x: &c0108x 0x00ffffff # 纯白(透)
+  0109: &c0109 0xffacb2c2 # 青灰
+  0110: &c0110 0xff30a099 # 青
+  0111: &c0111 0xbbacb2c2 # 淡青灰
+  0112: &c0112 0xAAffffff # 淡白
+
+  # 02_wuqing 简·雾青
+  0201: &c0201 0x37474f # 黑
+  0202: &c0202 0x23948e # 深青
+  0203: &c0203 0xff6850bb # 深紫
+  0204: &c0204 0xe4e7e9 # 雾灰
+  0205: &c0205 0x7b868c # 淡黑
+  0206: &c0206 0xeceff1 # 清灰
+  0207: &c0207 0xffd3d7da # 灰
+  0208: &c0208 0xfffc7878 # 橘红
+  0209: &c0209 0xddd3d7da # 灰-
+  0210: &c0210 0xff367272 # 黑青
+  0211: &c0211 0xfafafa # 白灰
+
+  # 03_yalan 简·雅蓝
+  0301: &c0301 0x333333 # 浅黑
+  0302: &c0302 0x2090FF # 蓝
+  0303: &c0303 0xD7D9DD # 淡灰
+  0304: &c0304 0x808080 # 灰
+  0305: &c0305 0xC1C4CD # 灰1
+
+  # 04_huanghun 简·黄昏
+  0401: &c0401 0xcbb994 # 雾黄
+  0402: &c0402 0xf8fbf8 # 雾灰
+  0403: &c0403 0xbc763c # 深黄
+  0404: &c0404 0xf3f3f3 # 淡黄
+  0405: &c0405 0xFFf8f4e6 # 浅黄
+  0406: &c0406 0xffD7D6D6 # 黄灰
+  0407: &c0407 0x30bc763c # 黄-
+
+  # 05_jianwan 夜·渐晚
+  0501: &c0501 0xFF3B3F4B # 灰4
+  0502: &c0502 0xffF7971E # 淡黄
+  0503: &c0503 0xff222222 # 黑
+  0504: &c0504 0xff7200 # 橙
+  0505: &c0505 0xFF333743 # 灰5
+  0506: &c0506 0xFF5E6474 # 灰1
+  0507: &c0507 0xFF525868 # 灰2
+  0508: &c0508 0xFF46495A # 灰3
+  0509: &c0509 0xbb4E5162 # 灰3.5
+  0510: &c0510 0xaaF7971E # 浅黄
+  0511: &c0511 0xaaff7200 # 橙
+
+  # 06_jingmo 夜·静墨
+  0601: &c0601 0xFF1F1F1F # 深黑
+  0602: &c0602 0xffd0d0d0 # 淡灰
+  0603: &c0603 0xff989898 # 淡白
+  0604: &c0604 0xB5B9B5 # 淡白+
+  0605: &c0605 0xFF38393D # 正灰
+  0606: &c0606 0x484C4F # 清灰
+  0607: &c0607 0xaa5cb05c # 淡緑
+  0608: &c0608 0xaafc7878 # 粉
+  0609: &c0609 0x70ff2200 # 淡红
+  0610: &c0610 0x90ffffff # 白-
+  0611: &c0611 0xaa2090FF # 淡蓝
+  0612: &c0612 0xaa367272 # 淡青
+
+  # 07_夜·无眠
+  0701: &c0701 0x528ccd # 淡白
+  0702: &c0702 0xff444444 # 正灰
+  0703: &c0703 0xFF2fa9d2 # 雅蓝
+  0704: &c0704 0xff887755 # 緑
+  0705: &c0705 0xff00a381 # 葱绿
+  0706: &c0706 0xff00d6d6 # 青0
+  0707: &c0707 0xa9171614 # 灰-
+  0708: &c0708 0xffb8b8b8 # 白
+  0709: &c0709 0xff30a0c0 # 蓝
+  0710: &c0710 0xffcc9933 # 雅黄
+  0711: &c0711 0xffcc5511 # 橙
+  0712: &c0712 0xFFE56D4B # 橙
+  0713: &c0713 0xff8870cc # 紫
+  0714: &c0714 0xffec5858 # 橘
+  0715: &c0715 0xFF444746 # 雾灰
+
+  # 08_夜·零点
+  0801: &c0801 0xff353638 # 正灰
+  0802: &c0802 0xff141617 # 黑
+  0803: &c0803 0x30594231 # 灰
+  0804: &c0804 0xff171614 # 黑
+  0805: &c0805 0xff464b53 # 青灰
+
+  # 09_夜·朦胧
+  0901: &c0901 0xFFA3DBE2 # 淡蓝
+  0902: &c0902 0xFFF5F6FA # 淡白
+  0903: &c0903 0xFFC1E2E6 # 淡青0
+  0904: &c0904 0xff2200 # 橘红
+  0905: &c0905 0xFFCEDFCE #淡蓝0
+  0906: &c0906 0x65E5E8CB # 淡緑-
+  0907: &c0907 0xFF85D2DC # 蓝2
+  0908: &c0908 0xFF58C7D5 #蓝
+  0909: &c0909 0xFFE5E8CB # 緑4
+  0910: &c0910 0xFFDFE4B4 # 緑3
+  0911: &c0911 0xFFB9D6BA # 青緑3
+  0912: &c0912 0xFFA4CDA6 # 青緑2
+  0913: &c0913 0xFF94C696 # 青緑
+  0914: &c0914 0xFFD9E09D # 緑2
+  0915: &c0915 0xFFD5DC8B # 緑
+  0916: &c0916 0xAAE5E8CB # 灰緑2
+  0917: &c0917 0x80E5E8CB # 灰緑3
+  0918: &c0918 0x80CEDFCE # 灰緑80
+  0919: &c0919 0xddE5E8CB # 灰緑d
+  0920: &c0920 0xFFDCE9EB # 淡藍5
+  # 12_caihong 彩虹
+  1201: &c1201 0xff56d6d6 # 青1
+  1202: &c1202 0xff7edede # 青2
+  1203: &c1203 0xff95e2e2 # 青3
+  1204: &c1204 0xffade7e7 # 青4
+  1205: &c1205 0xffc6eded # 青5
+  1205x: &c1205x 0x00c6eded # 青5(透明)
+
+  1206: &c1206 0xff60c060 # 绿0
+  1207: &c1207 0xff90d090 # 绿1
+  1208: &c1208 0xffaadaaa # 绿2
+  1209: &c1209 0xffb8dfb8 # 绿3
+  1210: &c1210 0xffc8e5c8 # 绿4
+  1211: &c1211 0xffd7ebd7 # 绿5
+
+  1212: &c1212 0xffb0bb30 # 黄绿0
+  1213: &c1213 0xffd0dd80 # 黄绿1
+  1214: &c1214 0xffdae39e # 黄绿2
+  1215: &c1215 0xffdfe6af # 黄绿3
+  1216: &c1216 0xffe5ebc1 # 黄绿4
+  1217: &c1217 0xffebefd3 # 黄绿5
+
+  1218: &c1218 0xfff6e600 # 黄0
+  1219: &c1219 0xfff6e6a6 # 黄1
+  1220: &c1220 0xfff6eaba # 黄2
+  1221: &c1221 0xfff5ecc5 # 黄3
+  1222: &c1222 0xfff6efd2 # 黄4
+  1223: &c1223 0xfff6f2de # 黄5
+
+  1224: &c1224 0xffeab690 # 橙0
+  1225: &c1225 0xfffac6b0 # 橙1
+  1226: &c1226 0xfff9d2c2 # 橙2
+  1227: &c1227 0xfff8d9cb # 橙3
+  1228: &c1228 0xfff8e0d6 # 橙4
+
+  1229: &c1229 0xffee9090 # 粉0
+  1230: &c1230 0xfffeb0b0 # 粉1
+  1231: &c1231 0xfffcc2c2 # 粉2
+  1232: &c1232 0xfff9e1e1 # 粉3
+
+  1233: &c1233 0xff00c0c0 # 湖绿
+  1234: &c1234 0xffee0066 # 玫红
+  1235: &c1235 0xff993333 # 深红
+  1236: &c1236 0xff554433 # 深褐
+  1237: &c1237 0xff776644 # 褐
+  1238: &c1238 0xfff6f6f6 # 白
+  1239: &c1239 0x4400c0c0 # 透青
+  1238x: &c1238x 0xddf6f6f6 # 白(透明)
+
+# 配色方案
+preset_color_schemes:
+  01_biaozhun:
+    name: 简·标准
+    author: 风花絮
+    text_color: *c0101
+    border_color: *c0102
+    label_color: *c0103
+    hilited_label_color: *c0104
+    back_color: *c0105
+    hilited_back_color: *c0105x
+    comment_text_color: *c0106
+    hilited_comment_text_color: *c0107
+    candidate_text_color: *c0101
+    hilited_candidate_text_color: *c0102
+    key_text_color: *c0101
+    key_back_color: *c0108
+    hilited_key_back_color: *c0102
+    off_key_back_color: *c0109
+    on_key_text_color: *c0108
+    on_key_back_color: *c0110
+    bh1: *c0111
+    bhc: *c0102
+    thc: *c0108
+    shc: *c0112
+
+  02_wuqing:
+    name: 简·雾青
+    author: osfans
+    text_color: *c0201
+    border_color: *c0110
+    label_color: *c0103
+    hilited_label_color: *c0203
+    back_color: *c0108
+    hilited_back_color: *c0108x
+    candidate_background: *c0204
+    hilited_candidate_text_color: *c0110
+    comment_text_color: *c0205
+    hilited_comment_text_color: *c0208
+    key_back_color: *c0206
+    hilited_key_back_color: *c0202
+    off_key_back_color: *c0207
+    on_key_text_color: *c0108
+    on_key_back_color: *c0208
+    bh1: *c0209
+    bhc: *c0110
+    thc: *c0211
+    shc: *c0211
+
+  03_yalan:
+    name: 简·雅蓝
+    author: 晨风
+    text_color: *c0301
+    border_color: *c0302
+    label_color: *c0103
+    hilited_label_color: *c0107
+    back_color: *c0303
+    hilited_back_color: *c0105x
+    comment_text_color: *c0304
+    hilited_comment_text_color: *c0104
+    candidate_text_color: *c0301
+    hilited_candidate_text_color: *c0302
+    candidate_background: *c0305
+    key_back_color: *c0211
+    hilited_key_back_color: *c0302
+    on_key_back_color: *c0110
+    on_key_text_color: *c0211
+    off_key_back_color: *c0305
+    bh1: *c0305
+    bhc: *c0302
+    thc: *c0211
+    shc: *c0211
+
+  04_huanghun:
+    name: 简·黄昏
+    author: amzxyz
+    text_color: *c0301
+    border_color: *c0403
+    hilited_back_color: *c0105x
+    label_color: *c0107
+    back_color: *c0402
+    hilited_back_color: *c0105x
+    hilited_label_color: *c0208
+    comment_text_color: *c0205
+    hilited_comment_text_color: *c0203
+    candidate_text_color: *c0301
+    hilited_candidate_text_color: *c0403
+    key_back_color: *c0404
+    hilited_key_back_color: *c0401
+    on_key_back_color: *c0403
+    on_key_text_color: *c0211
+    off_key_back_color: *c0405
+    bszgn: *c0406
+    bbjgn: *c0407
+    bh1: *c0405
+    bhc: *c0401
+    thc: *c0211
+    shc: *c0211
+
+  05_jianwan:
+    name: 夜·渐晚
+    text_color: *c0112
+    text_back_color: *c0501
+    border_color: *c0110
+    back_color: *c0503
+    hilited_back_color: *c0105x
+    label_color: *c0107
+    hilited_label_color: *c0104
+    hilited_comment_text_color: *c0504
+    candidate_text_color: *c0112
+    hilited_candidate_text_color: *c0110
+    candidate_background: *c0505
+    key_back_color: *c0506
+    hilited_key_back_color: *c0504
+    off_key_back_color: *c0505
+    on_key_back_color: *c0107
+    on_key_text_color: *c0108
+    bl1l5: *c0505
+    bl1l4: *c0501
+    bl1l3: *c0509
+    bl1l2: *c0507
+    bl1l1: *c0506
+    bl1r1: *c0506
+    bl1r2: *c0507
+    bl1r3: *c0509
+    bl1r4: *c0501
+    bl1r5: *c0505
+    bh2: *c0507
+    bh3: *c0509
+    bh4: *c0501
+    tsd: *c0607
+    tbj: *c0608
+    tsc: *c0609
+    tsz: *c0510
+    tkg: *c0611
+    thc: *c0110
+
+  06_jingmo:
+    name: 夜·静墨
+    author: 晨风
+    back_color: *c0601
+    text_color: *c0602
+    border_color: *c0210
+    label_color: *c0107
+    hilited_label_color: *c0104
+    hilited_candidate_text_color: *c0210
+    candidate_text_color: *c0603
+    comment_text_color: *c0604
+    hilited_comment_text_color: *c0710
+    candidate_background: *c0605
+    key_back_color: *c0605
+    hilited_key_back_color: *c0110
+    key_text_color: *c0603
+    off_key_back_color: *c0606
+    on_key_back_color: *c0104
+    on_key_text_color: *c0211
+    bh1: *c0606
+    tsd: *c0607
+    tbj: *c0608
+    tsc: *c0609
+    tsz: *c0510
+    tkg: *c0611
+    thc: *c0610
+    bhc: *c0612
+
+  07_wumian:
+    name: 夜·无眠
+    author: 晨风
+    text_color: *c0701
+    text_back_color: *c0601
+    back_color: *c0702
+    hilited_back_color: *c0105x
+    border_color: *c0703
+    label_color: *c0705
+    hilited_label_color: *c0107
+    candidate_background: *c0707
+    key_back_color: *c0601
+    hilited_candidate_back_color: 0x383635
+    candidate_text_color: *c0708
+    hilited_candidate_text_color: *c0104
+    comment_text_color: *c0112
+    hilited_comment_text_color: *c0710
+    on_key_back_color: *c0712
+    on_key_text_color: *c0108
+    off_key_back_color: *c0707
+    bh1: *c0707
+    tjh: *c0711
+    tdh: *c0713
+    tsc: *c0104
+    tsd: *c0107
+    tbj: *c0714
+    tkg: *c0110
+    thc: *c0703
+    tsz: *c0103
+
+  08_lingdian:
+    name: 夜·零点
+    author: "风花絮"
+    text_color: *c0108
+    text_back_color: *c0802
+    back_color: *c0801
+    border_color: *c0110
+    label_color: *c0103
+    hilited_label_color: *c0110
+    candidate_text_color: *c0112
+    hilited_candidate_text_color: *c0104
+    hilited_back_color: *c0105x
+    hilited_candidate_back_color: *c0803
+    comment_text_color: *c0112
+    hilited_comment_text_color: *c0107
+    key_back_color: *c0802
+    candidate_background: *c0702
+    off_key_text_color: *c0112
+    off_key_back_color: *c0804
+    bh1: *c0805
+
+  09_menglong:
+    name: 彩·朦胧
+    text_color: *c0101
+    text_back_color: *c0901
+    border_color: *c0711
+    label_color: *c0103
+    hilited_label_color: *c0110
+    back_color: *c0902
+    candidate_background: *c0903
+    hilited_back_color: *c0105x
+    comment_text_color: *c0205
+    hilited_comment_text_color: *c0713
+    candidate_text_color: *c0101
+    hilited_candidate_text_color: *c0904
+    hilited_key_back_color: *c0504
+    hilited_key_text_color: *c0101
+    key_back_color: *c0905
+    on_key_text_color: *c0108
+    off_key_back_color: *c0906
+    bl3l4: *c0905
+    bl2l5: *c0920
+    bl2l4: *c0903
+    bl2l3: *c0901
+    bl2l2: *c0907
+    bl2l1: *c0908
+    bl2r1: *c0908
+    bl2r2: *c0907
+    bl2r3: *c0901
+    bl2r4: *c0903
+    bl2r5: *c0920
+    bl3r4: *c0905
+    bl4l4: *c0909
+    bl4l3: *c0910
+    bl3l3: *c0911
+    bl3l2: *c0912
+    bl3l1: *c0913
+    bl3r1: *c0913
+    bl3r2: *c0912
+    bl3r3: *c0911
+    bl4r4: *c0909
+    bl5l3: *c0909
+    bl4l2: *c0914
+    bl4l1: *c0915
+    bl4r1: *c0915
+    bl4r2: *c0914
+    bl4r3: *c0910
+    bl5l1: *c0909
+    bl5l2: *c0916
+    bl5l3: *c0917
+    bl5r2: *c0916
+    bl5r3: *c0917
+    bszgn: *c0918
+    bbjgn: *c1232
+    bh1: *c0919
+
+  10_zhaoxia:
+    name: 彩·朝霞
+    back_color: 0xFFF7BCB4
+    keyboard_back_color: 0xFFF7BCB4
+    hilited_candidate_back_color: 0x00
+    hilited_candidate_text_color: *c0904
+    hilited_key_back_color: *c0504
+    hilited_key_text_color: *c0101
+    key_back_color: 0xFFFDEAE6
+    key_symbol_color: 0xff555555
+    key_text_color: *c0101
+    text_color: *c0101
+    off_key_back_color: 0x66ffffff
+    off_key_text_color: *c0108
+    on_key_text_color: *c0904
+    text_color: *c0108
+    text_back_color: 0xbbFCDBD6
+    border_color: *c0504
+    bl3l4: 0xFFF5A79A
+    bl2l4: 0xFFF5B297
+    bl2l3: 0xFFF9CD9C
+    bl2l2: 0xFFFDE0A6
+    bl2l1: 0xDDFEFAB3
+    bl2r1: 0xFFC8E2B2
+    bl2r2: 0xFF99D0B9
+    bl2r3: 0xFF99D1D2
+    bl2r4: 0xFF93AAD6
+    bl3r4: 0xFFD2A6C7
+    bl4l4: 0xFFFCDBD6
+    bl4l3: 0xFFFCD9C5
+    bl3l3: 0xFFFCE2C9
+    bl3l2: 0xFFFFEBD0
+    bl3l1: 0xFFE7F1D8
+    bl3r1: 0xFFC9E3D6
+    bl3r2: 0xFFC9E5E8
+    bl3r3: 0xFFBFCAE6
+    bl4r4: 0xFFC9B6D4
+    bl5l3: 0xFFFDEAE6
+    bl4l2: 0xFFFCE9DB
+    bl4l1: 0xFFFEEEDF
+    bl4r1: 0xFFF0F6E8
+    bl4r2: 0xFFDFEFE5
+    bl4r3: 0xFFD9DEF1
+    bl5r3: 0xFFE8D3E2
+    tsz: 0x77000000
+    bdh: 0x66FCDBD6
+    bszgn: 0xFFF5A79A
+    bbjgn: 0xFFF5A79A
+    tkg: *c0904
+
+  11_huaxiang:
+    name: "彩·花香"
+    author: "晨风"
+    back_color: 0xff789c80
+    border_color: 0xfffc7878
+    label_color: *c0203
+    hilited_label_color: *c0108
+    candidate_text_color: 0xffFFFFBC
+    comment_text_color: 0xffFFFFBC
+    hilited_comment_text_color: *c0103
+    hilited_back_color: *c0105x
+    hilited_candidate_text_color: 0xfffc7878
+    candidate_background: *c0210
+    hilited_text_color: *c0108
+    key_back_color: *c0210
+    on_key_back_color: 0xffFE8F23
+    on_key_text_color: *c0108
+    off_key_back_color: 0xaa30a099
+    text_color: *c0108
+    text_back_color: *c0210
+    bh1: 0xaa30a099
+    bsd: 0x500d1b0a
+    bkg: 0xaa30a099
+    bbj: 0xffb3a0c8
+    bsz: 0x99cc9933
+    bsc: 0xfffc7878
+    bjh: *c1207
+    bdh: *c1201
+    bhc: 0x90098969
+
+  12_tiangong:
+    name: 彩·天弓
+    author: 听雨客 # 作者信息
+
+    border_color: *c0108 # 边框
+    text_back_color: *c1205 # 悬浮窗背景
+    back_color: *c1205x # 编码背景
+    text_color: *c1229 # 编码文本
+    hilited_back_color: *c1205x # 高亮编码背景
+    hilited_text_color: *c0706 # 高亮编码文本
+
+    candidate_background: *c1205 # 候选栏背景
+    label_color: *c1224 # 序号标签
+    candidate_text_color: *c1233 # 候选文本
+    comment_text_color: *c1206 # 编码注释
+    hilited_candidate_back_color: *c1238x # 高亮候选背景
+    hilited_label_color: *c1218 # 高亮序号标签
+    hilited_candidate_text_color: *c1234 # 高亮候选文本
+    hilited_comment_text_color: *c1212 # 高亮编码注释
+    candidate_separator_color: *c1205 # 候选分隔
+
+    root_background: *c1205 # 键盘与候选栏基底背景
+    keyboard_back_color: *c1238 # 键盘背景
+    key_back_color: *c1213 # 按键背景
+    key_text_color: *c1236 # 按键文本
+    key_symbol_color: *c1237 # 按键符号
+    hilited_key_back_color: *c0108 # 高亮按键背景
+    hilited_key_text_color: *c1237 # 高亮按键文本
+    hilited_key_symbol_color: *c1236 # 高亮按键符号
+    off_key_back_color: *c1232 # 功能键关闭状态背景
+    off_key_text_color: *c1235 # 功能键关闭状态文本
+    on_key_back_color: *c0108 # 功能键开启状态背景
+    on_key_text_color: *c1234 # 功能键开启状态文本
+    hilited_off_key_back_color: *c0108 # 高亮功能键关闭状态背景
+    hilited_off_key_text_color: *c1230 # 高亮功能键关闭状态文本
+    hilited_on_key_back_color: *c0108 # 高亮功能键开启状态背景
+    hilited_on_key_text_color: *c1230 # 高亮功能键开启状态文本
+    preview_back_color: *c1239 # 按键预览背景
+    preview_text_color: *c0108 # 按键预览文本
+    # shadow_color: *c1236 # 按键阴影
+    liquid_keyboard_background: *c1238 # 液态键盘背景
+    long_text_back_color: *c1213 # 剪贴板按键背景
+    hand_writing_color: *c1236 # 手写笔迹
+    bkg: *c1226 # 空格键背景
+    tkg: *c0108 # 空格键文本
+    htkg: *c1225 # 高亮空格键文本
+    hsgn: *c1235 # 高亮功能键符号
+    bbf: *c0108 # 图释菜单键背景
+    tbf: *c1234 # 图释菜单键文本
+    off_key_back_color: *c1232 # 功能键背景
+    bl1l5: *c1205 # 第一行中左五背景
+    bl1l4: *c1204 # 第一行中左四背景
+    bl1l3: *c1203 # 第一行中左三背景
+    bl1l2: *c1202 # 第一行中左二背景
+    bl1l1: *c1201 # 第一行中左一背景
+    bl1r1: *c1201 # 第一行中右一背景
+    bl1r2: *c1202 # 第一行中右二背景
+    bl1r3: *c1203 # 第一行中右三背景
+    bl1r4: *c1204 # 第一行中右四背景
+    bl1r5: *c1205 # 第一行中右五背景
+
+    bl2l5: *c1211 # 第二行中左五背景
+    bl2l4: *c1210 # 第二行中左四背景
+    bl2l3: *c1209 # 第二行中左三背景
+    bl2l2: *c1208 # 第二行中左二背景
+    bl2l1: *c1207 # 第二行中左一背景
+    bl2r1: *c1207 # 第二行中右一背景
+    bl2r2: *c1208 # 第二行中右二背景
+    bl2r3: *c1209 # 第二行中右三背景
+    bl2r4: *c1210 # 第二行中右四背景
+    bl2r5: *c1211 # 第二行中右五背景
+
+    bl3l5: *c1217 # 第三行中左五背景
+    bl3l4: *c1216 # 第三行中左四背景
+    bl3l3: *c1215 # 第三行中左三背景
+    bl3l2: *c1214 # 第三行中左二背景
+    bl3l1: *c1213 # 第三行中左一背景
+    bl3r1: *c1213 # 第三行中右一背景
+    bl3r2: *c1214 # 第三行中右二背景
+    bl3r3: *c1215 # 第三行中右三背景
+    bl3r4: *c1216 # 第三行中右四背景
+    bl3r5: *c1217 # 第三行中右五背景
+
+    bl4l5: *c1223 # 第四行中左五背景
+    bl4l4: *c1222 # 第四行中左四背景
+    bl4l3: *c1221 # 第四行中左三背景
+    bl4l2: *c1220 # 第四行中左二背景
+    bl4l1: *c1219 # 第四行中左一背景
+    bl4r1: *c1219 # 第四行中右一背景
+    bl4r2: *c1220 # 第四行中右二背景
+    bl4r3: *c1221 # 第四行中右三背景
+    bl4r4: *c1222 # 第四行中右四背景
+    bl4r5: *c1223 # 第四行中右五背景
+
+    bl5l5: *c1228 # 第五行中左五背景
+    bl5l4: *c1228 # 第五行中左四背景
+    bl5l3: *c1227 # 第五行中左三背景
+    bl5l2: *c1226 # 第五行中左二背景
+    bl5l1: *c1225 # 第五行中左一背景
+    bl5r1: *c1225 # 第五行中右一背景
+    bl5r2: *c1226 # 第五行中右二背景
+    bl5r3: *c1227 # 第五行中右三背景
+    bl5r4: *c1228 # 第五行中右四背景
+    bl5r5: *c1228 # 第五行中右五背景
+
+    bl6l4: *c1232 # 第六行中左二背景
+    bl6l3: *c1232 # 第六行中左一背景
+    bl6l2: *c1231 # 第六行中左二背景
+    bl6l1: *c1230 # 第六行中左一背景
+    bl6r1: *c1230 # 第六行中右一背景
+    bl6r2: *c1231 # 第六行中右二背景
+    bl6r3: *c1232 # 第六行中右二背景
+    bl6r4: *c1232 # 第六行中右二背景
+
+    hth1: *c1201 # 第一行高亮文本
+    hth2: *c1207 # 第二行高亮文本
+    hth3: *c1213 # 第三行高亮文本
+    hth4: *c1219 # 第四行高亮文本
+    hth5: *c1225 # 第五行高亮文本
+    hth6: *c1230 # 第六行高亮文本
+
+preset_keys:
+  # 安卓
+  BRIGHTNESS_DOWN: {label: 亮度-, send: BRIGHTNESS_DOWN}
+  BRIGHTNESS_UP: {label: 亮度+, send: BRIGHTNESS_UP}
+  CALCULATOR: {label: 计算器, send: CALCULATOR}
+  CALENDAR: {label: 日历, send: CALENDAR}
+  CONTACTS: {label: 电话簿, send: CONTACTS}
+  ENVELOPE: {label: 信箱, send: ENVELOPE}
+  EXPLORER: {label: 浏览器, send: EXPLORER}
+  MUSIC: {label: 音乐, send: MUSIC}
+  POWER: {label: 电源, send: POWER}
+  SEARCH: {label: 搜寻, send: Find}
+  SLEEP: {label: 休眠, send: SLEEP}
+  VOICE_ASSIST: {label: 语音, send: VOICE_ASSIST}
+  VOLUME_DOWN: {label: 音量-, send: VOLUME_DOWN}
+  VOLUME_UP: {label: 音量+, send: VOLUME_UP}
+  VOLUME_MUTE: {label: 静音, send: VOLUME_MUTE}
+
+  # 编辑
+  Shift_L: {label: '⇧', preview: '⇧', functional: true, shift_lock: long, send: Shift_L}
+  Shift_L1: {label: '☩', preview: '☩', functional: true, shift_lock: click, send: Shift_L}
+  space: {preview: '⎵', repeatable: false, functional: true, send: space}
+  spacex: {label: '⎵', preview: '⎵', repeatable: false, functional: true, send: space}
+  space1: {label: '⎵', preview: '⎵', repeatable: true, functional: true, send: space}
+  Return: {label: 'enter_labels', preview: 'enter', repeatable: false, functional: true, send: Return}
+  Return1: {label: '⏎', preview: '⏎', repeatable: false, functional: true, send: Return}
+  Return2: {label: 回车, preview: '回车', repeatable: false, functional: true, send: Return }
+  Hide: {label: '隐藏', preview: '隐藏', functional: false, send: BACK}
+  BackSpace: {label: '⌫', preview: '⌫', repeatable: true, functional: true, send: BackSpace}
+  Delete: {label: '⌦', preview: '⌦', repeatable: true, functional: true, send: Delete}
+  Escape: {label: '⎋', preview: '⎋', functional: true, send: Escape}
+  Home: {label: '⩞', preview: '⩞', functional: false, send: Home}
+  End: {label: '⩣', preview: '⩣', functional: false, send: End}
+  Insert: {label: '插入', preview: '插入', functional: false, send: Insert}
+  Page_Up: {label: '⩓', preview: '⩓', repeatable: true, functional: false, send: Page_Up}
+  Page_Down: {label: '⩔', preview: '⩔', repeatable: true, functional: false, send: Page_Down}
+  Page_Up1: {label: ' 上页 ', preview: ' 上页 ', repeatable: false, functional: false, send: Page_Up}
+  Page_Down1: {label: ' 下页 ', preview: ' 下页 ', repeatable: false, functional: false, send: Page_Down}
+  Left: {label: '◁', preview: '◁', repeatable: true, functional: false, send: Left}
+  Left1: {label: '◂', preview: '◂', repeatable: true, functional: false, send: Left}
+  Down: {label: '▽', preview: '▽', repeatable: true, functional: false, send: Down}
+  Up: {label: '△', preview: '△', repeatable: true, functional: false, send: Up}
+  Right: {label: '▷', preview: '▷', repeatable: true, functional: false, send: Right}
+  Right1: {label: '▸', preview: '▸', repeatable: true, functional: false, send: Right}
+  select_all: {label: '☑', preview: '☑', functional: true, send: Control+a}
+  Clear: {label: '全清', preview: '全清', functional: false, text: '{Control+a}{BackSpace}'}
+  cut: {label: '✄', preview: '✄', functional: true, send: Control+x}
+  cut_all: {label: '全挪', preview: '全挪', functional: false, text: '{Control+a}{Control+x}'} # 全选并剪切
+  copy: {label: '❐', preview: '❐', functional: true, send: Control+c}
+  copy_all: {label: '全誊', preview: '全誊', functional: false, text: '{Control+a}{Control+c}'} # 全选并复制
+  paste: {label: '▣', preview: '▣', functional: true, send: Control+v}
+  paste_clip: {label: '贴上', preview: '贴上', functional: false, send: function, command: clipboard}
+  paste_text: {label: '贴上文本', preview: '贴上文本', functional: false, send: Control+Shift+Alt+v} # >= Android 6.0
+  share_text: {label: '分享文本', preview: '分享文本', functional: false, send: Control+Alt+s} # >= Android 6.0
+  redo: {label: '↻', preview: '↻', repeatable: false, functional: true, send: Control+y} # >= Android 6.0
+  undo: {label: '↺', preview: '↺', repeatable: false, functional: true, send: Control+z} # >= Android 6.0
+  delimiterM: {label: 二选, send: colon}
+  delimiterF: {label: 三选, send: semicolon}
+  RepeatCommit: {label: '重输', preview: '重输', functional: false, command: commit, option: "%1$s"} # 重复输入已上屏内容
+  delimiter: {label: '¦', preview: '¦', functional: false, text: "'"}
+  x1: {label: '单字', preview: '单字', functional: false, text: '{Home}{Right}{Right}'}
+  x2: {label: '二字', preview: '二字', functional: false, text: '{Home}{Right}{Right}{Right}{Right}'}
+  x3: {label: '三字', preview: '三字', functional: false, text: '{Home}{Right}{Right}{Right}{Right}{Right}{Right}'}
+  x4: {label: '四字', preview: '四字', functional: false, text: '{Home}{Right}{Right}{Right}{Right}{Right}{Right}{Right}{Right}'}
+
+  # rime组合键
+  F4: {label: '方案选单', preview: '方案选单', send: F4}
+  BackToPreviousSyllable: {label: 删音节, send: Control+BackSpace}
+  CommitRawInput: {label: '编码', preview: '编码', send: Control+Return}
+  CommitScriptText: {label: '♫', preview: '♫', send: Shift+Return}
+  CommitComment: {label: '编码', preview: '编码', send: Control+Shift+Return}
+  DeleteCandidate: {label: '⌧', preview: '⌧', send: Control+Delete}
+
+  # rime状态
+  Mode_switch: {toggle: ascii_mode, send: Mode_switch, states: [中文, EN]}
+  Henkan: {toggle: simplification, send: Mode_switch, states: [汉, 汉]}
+  Zenkaku_Hankaku: {toggle: full_shape, send: Mode_switch, states: [☽, ●]}
+  Punct_switch: {toggle: ascii_punct, send: Mode_switch, states: [。, ．]}
+  Charset_switch: {toggle: extended_charset, send: Mode_switch, states: [常, 广]}
+  Candidate_switch: {toggle: _hide_candidate, send: Mode_switch, states: [有候选, 无候选]}
+  Comment_switch: {toggle: _hide_comment, send: Mode_switch, states: [有注释, 无注释]}
+  Symbol_switch: {toggle: _hide_key_symbol, send: Mode_switch, states: [隐, 显]}
+  Hint_switch: {toggle: _hide_key_hint, send: Mode_switch, states: [无, 有]}
+  One_hand_l2n: {toggle: _one_hand_mode_1, send: Mode_switch, states: [㊧, ㊣]}
+  One_hand_r2n: {toggle: _one_hand_mode_2, send: Mode_switch, states: [㊨, ㊣]}
+  One_hand_l2r: {toggle: _one_hand_mode_3, send: Mode_switch, states: [㊧, ㊨]}
+  one_hand_switch_1: {toggle: _one_hand_mode_1, send: Mode_switch, states: [ 左手, 普通 ]}
+  one_hand_switch_2: {toggle: _one_hand_mode_2, send: Mode_switch, states: [ 右手, 普通 ]}
+  one_hand_switch_3: {toggle: _one_hand_mode_3, send: Mode_switch, states: [ 左手, 右手 ]}
+  # Handwriting: {toggle: _handwriting, send: Mode_switch, states: [写, 写]}
+
+  #切换键盘
+  Keyboard_switch: {label: 键盘, send: Eisu_toggle, select: .next}
+  liquid_keyboard_switch: { label: 更多, send: function, command: liquid_keyboard, option: "更多" }
+  liquid_keyboard_exit: {label: 返回, send: function, command: liquid_keyboard, option: "-1"}  #退出liquidkeyboard
+  Keyboard_default: {label: '返回', functional: true, send: Eisu_toggle, select: default}
+  Keyboard_letter: {label: 'Abc', functional: true, send: Eisu_toggle, select: letter}
+  Keyboard_number: {label: 'ϟ12', functional: true, send: Eisu_toggle, select: number}
+  Keyboard_edit: {label: '◂I▸', functional: true, send: Eisu_toggle, select: edit}
+  Keyboard_symbols: {label: '符号', functional: true, send: Eisu_toggle, select: symbols}
+  Keyboard_symbolsx: {label: 'More', functional: true, send: Eisu_toggle, select: symbols}
+  Keyboard_move: {label: '❖', functional: true, send: Eisu_toggle, select: move}
+  Keyboard_next: {label: '键盘', functional: true, send: Eisu_toggle, select: .next}
+  Keyboard_last: {label: '后退', functional: true, send: Eisu_toggle, select: .last}
+  Keyboard_last_lock: {label: '返回', functional: true, send: Eisu_toggle, select: .last_lock} # 直接切换至上一锁定键盘
+  liquid_keyboard_clipboard: { label: 剪贴, send: function, command: liquid_keyboard, option: "剪贴" }
+  set_color_ink: { label: 切换到ink配色, send: function, command: set_color_scheme, option: "ink" }
+  Set_color_scheme: {label: '🧩', send: function, command: set_color_scheme, option: "01_rainbow"}
+  Liquid_keyboard: {label: '💡', send: function, command: liquid_keyboard}
+  Liquid_keyboard_exit: {label: '⌨', send: function, command: liquid_keyboard, option: "-1"}
+  Liquid_keyboard_tabs: {label: '💠', send: function, command: liquid_keyboard, option: "更多"}
+  Liquid_keyboard_emoji: {label: '🙂', send: function, command: liquid_keyboard, option: "🙂"}
+  Clipboard: {label: '📋', send: function, command: liquid_keyboard, option: "📋"}
+  NativeClipboard: {label: '📋', send: function, command: run, option: "com.dhm47.nativeclipboard/.ClipBoardA"} # 运行程序: 本地剪贴板
+
+  # trime设定
+  Menu: {label: '方案', functional: false, send: Menu}
+  Color: {label: '配色', send: PROG_RED}
+  Color_switch: {label: 配色, send: PROG_RED}
+  Color_settings: {label: '配色', functional: false, send: SETTINGS, option: "color"}
+  Theme_settings: {label: '主题', functional: false, send: SETTINGS, option: "theme"}
+  IME_switch: {label: '⌨️', functional: false, send: LANGUAGE_SWITCH} # 弹出对话框选择输入法
+  IME_last: {label: '上一输入法', functional: false, send: LANGUAGE_SWITCH, select: .last} # 直接切换至上一输入法
+  IME_next: {label: '下一输入法', functional: false, send: LANGUAGE_SWITCH, select: .next} # 直接切换至下一输入法
+  Schema_switch: {label: '下一方案', functional: false, send: Control+Shift+1}
+  Help: {label: '说明', functional: false, send: Help}
+  Info: {label: '关于', functional: false, send: INFO}
+  Settings: {label: '设定', functional: false, send: SETTINGS}
+  Schema_settings: {label: '方案', functional: false, send: SETTINGS, option: "schema"}
+
+  # trime命令
+  Date: {label: 日期, command: date, option: "yyyy-MM-dd"}
+  ChineseDate: {label: 农历, command: date, option: "zh_CN@calendar=chinese"} #农历等日期(>=Android 7.0)：date 语言@calendar=历法 格式。具体参见https://developer.android.com/reference/android/icu/util/Calendar.html
+  Time: {label: '⌚', command: date, option: "E·HH:mm:ss"} #时间： date 格式
+  DictTangoApp: {label: 📚', command: run, option: "cn.jimex.dict"} # 运行程序: run 包名
+  XtjsqApp: {label: '🧮', command: run, option: "com.huawei.calculator"} # 运行程序: run 包名
+  
+  RepeatCommit: { label: 重复,  command: commit, option: "%1$s" } #重复输入刚上屏的内容
+  Sync: {label: '同步', send: function, command: broadcast, option: "com.osfans.trime.sync"}
+  Deploy: {label: '部署', send: function, command: broadcast, option: "com.osfans.trime.deploy"}
+
+  # 数字键盘
+  plus: {label: '+', functional: true, text: '+'}
+  minus: {label: '-', functional: true, text: '-'}
+  asterisk: {label: '*', functional: true, text: '*'}
+  slash: {label: '/', functional: true, text: '/'}
+  equal: {label: '=', functional: true, text: '='}
+  period: {label: '.', functional: true, text: '.'}
+  parentheses: {label: '()', functional: true, text: '(){Left}'}
+  brackets: {label: '[]', functional: true, text: '[]{Left}'}
+  versus: {label: '∶', functional: true, text: '∶'}
+
+# 按键高度
+height:
+  1: &kh1 45 # 主键盘、数字键盘、编辑键盘、符号键盘
+  2: &kh2 36 # 表情键盘
+  3: &kh3 26 # 颜文字键盘
+  4: &khmenu1 32 # 符号、表情键盘菜单键
+  5: &khmenu2 34 # 颜文字键盘菜单键
+
+# 键盘高度
+keyboard_height:
+  1: &kbh1 225 # 主键盘(kh1*5 + vertical_gap*6)
+  2: &kbh2 225 # 数字键盘、编辑键盘(kh1*4 + vertical_gap*5)
+  3: &kbh3 225 # 符号键盘(khmenu1*1 + kh1*4 + vertical_gap*6)
+  4: &kbh4 225 # 表情键盘(khmenu1*1 + kh2*5 + vertical_gap*7)
+  5: &kbh5 225 # 颜文字键盘(kh3*6 + khmenu2*1 + vertical_gap*8)
+
+# 按键符号偏移量
+key_symbol_offset_x:
+  1: &so1 0 # 默认键盘
+  2: &so2 0 # 默认键盘之数字、编辑功能触发键
+  3: &so3 18 # 默认键盘回车键
+  4: &so4 15 # 回车键、数字键盘
+  5: &so5 -5 # 数字、编辑、表情功能触发键
+
+# 高亮按键文本偏移量
+key_press_offset:
+  1: &po1 16 # 主键盘、数字键盘、编辑键盘、符号键盘
+  2: &po2 12 # 表情键盘
+  3: &po3 6 # 颜文字键盘
+  4: &pomenu1 10 # 符号、表情键盘菜单键
+  5: &pomenu2 12 # 颜文字键盘菜单键
+  6: &npo1 -16 # 负值
+  7: &npo2 -12 # 负值
+  9: &npomenu2 -12 # 负值
+
+# 键盘布局
+preset_keyboards:
+  # 默认键盘
+  default:
+    author: 晨风
+    name: 36键默认布局
+    width: 10 # 按键宽度
+    height: *kh1 # 按键高度
+    keyboard_height: *kbh1 # 键盘高度
+    auto_height_index: -1 # 锁定键盘高度时，吸收缩放余数的按键行索引(0 第一行 | 1 第二行 | N-1 第 N 行 | -1 倒数第一行)
+    ascii_mode: 0 # 键盘默认状态(0 中文 | 1 西文)
+    ascii_keyboard: letter # 西文状态指定键盘
+    lock: true # 键盘锁标记
+    label_transform: uppercase # uppercase|none 中文模式下的字母卷标自动大写
+    key_text_offset_x: 0 # 按键文本横向偏移量(左负右正)
+    key_text_offset_y: 0 # 按键文本纵向偏移量(上负下正)
+    key_symbol_offset_x: *so1 # 按键符号横向偏移量(左负右正)
+    key_symbol_offset_y: 0 # 按键符号纵向偏移量(上负下正)
+    key_hint_offset_x: 10 # 按键助记横向偏移量(左负右正)
+    key_hint_offset_y: 0 # 按键助记纵向偏移量(上负下正)
+    key_press_offset_x: 0 # 高亮按键文本横向偏移量(左负右正)
+    key_press_offset_y: *po1 # 高亮按键文本纵向偏移量(上负下正)
+    keys:
+       # 第一行
+      - {click: 1, long_click: '!', swipe_up: ',', swipe_down: '.', hint: '。', key_hint_offset_x: 12, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1l5, height: 30}
+      - {click: 2, long_click: '@', swipe_up: '=', swipe_down: '=', hint: '=', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l4}
+      - {click: 3, long_click: '#', swipe_up: plus, swipe_down: plus, hint: '+', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l3}
+      - {click: 4, long_click: '$', swipe_up: minus, swipe_down: minus, hint: '-', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l2}
+      - {click: 5, long_click: '%', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l1}
+      - {click: 6, long_click: '^', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r1}
+      - {click: 7, long_click: '&', swipe_up: slash, swipe_down: slash, hint: '÷', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r2}
+      - {click: 8, long_click: '*', swipe_up: asterisk, swipe_down: asterisk, hint: '×', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r3}
+      - {click: 9,  long_click: '(', key_hint_offset_x: 10, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1r4}
+      - {click: 0, long_click: ')', key_hint_offset_x: 10, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1r5}
+
+       # 第二行
+      - {click: q, long_click: '@', swipe_up: Page_Up, __include: local_colors/cl2l5}
+      - {click: w, long_click: '~', __include: local_colors/cl2l4}
+      - {click: e, long_click: '_', key_symbol_offset_y: -4, __include: local_colors/cl2l3}
+      - {click: r, long_click: "'", __include: local_colors/cl2l2}
+      - {click: t, long_click: '*', swipe_up: Up, __include: local_colors/cl2l1}
+      - {click: y, long_click: '"', swipe_up: '"', swipe_down: '_', __include: local_colors/cl2r1}
+      - {click: u, long_click: '&', __include: local_colors/cl2r2}
+      - {click: i, long_click: '^', __include: local_colors/cl2r3}
+      - {click: o, long_click: '[]{Left}', swipe_up: '[', swipe_down: ']', __include: local_colors/cl2r4}
+      - {click: p, long_click: '{}{Left}', swipe_up: '{', swipe_down: '}', __include: local_colors/cl2r5}
+
+      # 第三行
+      - {click: Left1, __include: local_colors/csfy, width: 5}
+      - {click: a, long_click: select_all, swipe_up: select_all, swipe_down: Page_Down, __include: local_colors/cl3l5}
+      - {click: s, long_click: Time, swipe_up: ChineseDate, __include: local_colors/cl3l4}
+      - {click: d, long_click: '\', swipe_up: '=', __include: local_colors/cl3l3}
+      - {click: f, long_click: Left, swipe_left: Left, swipe_up: Home, key_symbol_offset_x: 0, __include: local_colors/cl3l2}
+      - {click: g, long_click: Up, swipe_up: Up, swipe_down: Down, hint: ▽, key_hint_offset_x: 0, key_symbol_offset_x: 0, __include: local_colors/cl3l1}
+      - {click: h, long_click: Right, swipe_down: End, swipe_right: Right, key_symbol_offset_x: 0, __include: local_colors/cl3r2}
+      - {click: j, long_click: '#', swipe_up: plus, swipe_down: minus, __include: local_colors/cl3r3}
+      - {click: k, long_click: '(){Left}', swipe_up: '(', swipe_down: ')', __include: local_colors/cl3r4}
+      - {click: l, long_click: '<>{Left}', swipe_up: '<', swipe_down: '>', __include: local_colors/cl3r5}
+      - {click: Right1, __include: local_colors/cxfy, width: 5}
+
+      # 第四行
+      - {click: Shift_L, swipe_up: Symbol_switch, swipe_down: Hint_switch, composing: Escape, key_press_offset_y: *npo1, key_long_text_size: 28, __include: local_colors/csd, width: 15}
+      - {click: z, long_click: '/', swipe_up: DictTangoApp, __include: local_colors/cl4l4}
+      - {click: x, long_click: cut, swipe_up: Clipboard, swipe_down: cut, __include: local_colors/cl4l3}
+      - {click: c, long_click: copy, swipe_up: asterisk, swipe_down: slash, __include: local_colors/cl4l2}
+      - {click: v, long_click: paste, swipe_down: paste, __include: local_colors/cl4l1}
+      - {click: b, long_click: '%', swipe_right: One_hand_r2n, swipe_up: Baidu, key_symbol_offset_x: 0, __include: local_colors/cl4r2}
+      - {click: n, long_click: ':', __include: local_colors/cl4r3}
+      - {click: m, long_click: ';', swipe_up: ';', swipe_down: ';', __include: local_colors/cl4r4}
+      - {click: BackSpace, swipe_up: Clear, swipe_down: Comment_switch, swipe_left: Escape, key_press_offset_x: *npo1, key_press_offset_y: 0, key_long_text_size: 28, width: 15, __include: local_colors/csc}
+
+      # 第五行
+      - {click: Keyboard_number, long_click: IME_switch, swipe_up: Menu, has_menu: Page_Up1, key_symbol_offset_x: *so2, __include: local_colors/csz}
+      - {click: Keyboard_edit, has_menu: Page_Down1, long_click: Theme_settings, swipe_up: Color_settings, key_symbol_offset_x: *so2, __include: local_colors/cbj}
+      - {label: '  ，', click: ',', long_click: '!', , has_menu: delimiterF, swipe_up: '`', __include: local_colors/cdh}
+      - {click: space, ascii: spacex, long_click: Mode_switch, swipe_up: Mode_switch, swipe_left: Left, swipe_right: Right, key_symbol_offset_x: 0, width: 40, __include: local_colors/ckg}
+      - {label: '  。', click: '.', long_click: Keyboard_symbols, has_menu: delimiterM, swipe_up: '?', __include: local_colors/cjh}
+      - {click: Return, composing: Return1, long_click: Theme_settings, swipe_up: Color_settings, swipe_down: Candidate_switch, key_symbol_offset_x: *so3, width: 20, __include: local_colors/chc}
+
+  # 西文键盘
+  letter:
+    author: 听雨客
+    name: 西文键盘
+    ascii_mode: 1
+    reset_ascii_mode: true # 显示键盘时重置为当前布局 ascii_mode 指定状态
+    lock: false
+    __include: preset_keyboards/default
+
+  # 编辑键盘
+  edit:
+    author: 听雨客
+    name: 编辑
+    width: 16.6
+    height: *kh1
+    keyboard_height: *kbh2
+    auto_height_index: -1
+    ascii_mode: 0
+    key_press_offset_y: *po1
+    keys:
+      # 第一行
+      - {click: Tab, __include: local_colors/cbjl1l3}
+      - {click: redo, __include: local_colors/cbjl1l2}
+      - {click: Page_Up, key_press_offset_y: *npo1, __include: local_colors/cbjl1l1}
+      - {click: Up, key_press_offset_y: *npo1, __include: local_colors/cbjl1r1}
+      - {click: Home, key_press_offset_y: *npo1, __include: local_colors/cbjl1r2}
+      - {click: Clipboard, __include: local_colors/cbjl1r3}
+
+      # 第二行
+      - {click: Keyboard_symbols, __include: local_colors/cbjl2l3}
+      - {click: undo, __include: local_colors/cbjl2l2}
+      - {click: Left, key_press_offset_x: *npo1, key_press_offset_y: 0, __include: local_colors/cbjl2l1}
+      - {click: Shift_L1, __include: local_colors/cbjl2r1}
+      - {click: Right, key_press_offset_x: *po1, key_press_offset_y: 0, __include: local_colors/cbjl2r2}
+      - {click: space1, swipe_up: Mode_switch, __include: local_colors/cbjl2r3}
+
+      # 第三行
+      - {click: Keyboard_number, __include: local_colors/cbjl3l3}
+      - {click: Delete, key_press_offset_x: *po1, key_press_offset_y: 0, __include: local_colors/cbjl3l2}
+      - {click: Page_Down, __include: local_colors/cbjl3l1}
+      - {click: Down, __include: local_colors/cbjl3r1}
+      - {click: End, __include: local_colors/cbjl3r2}
+      - {click: BackSpace, swipe_up: Clear, swipe_down: Comment_switch, swipe_left: Escape, key_press_offset_x: *npo1, key_press_offset_y: 0, __include: local_colors/cbjl3r3}
+
+      # 第四行
+      - {click: Keyboard_default, __include: local_colors/cbjl4l3}
+      - {click: select_all, __include: local_colors/cbjl4l2}
+      - {click: cut, __include: local_colors/cbjl4l1}
+      - {click: copy, __include: local_colors/cbjl4r1}
+      - {click: paste, __include: local_colors/cbjl4r2}
+      - {click: Return1, long_click: Theme_settings, swipe_up: Color_settings, swipe_down: Candidate_switch, __include: local_colors/cbjl4r3}
+
+  # 数字键盘
+  number:
+    author: 听雨客
+    name: 数字
+    width: 16.6
+    height: *kh1
+    keyboard_height: *kbh2
+    auto_height_index: -1
+    ascii_mode: 1
+    key_press_offset_y: *po1
+    keys:
+      # 第一行
+      - {click: versus, long_click: '≈', key_symbol_offset_x: *so4, __include: local_colors/cszl1l3}
+      - {click: plus, long_click: '±', key_symbol_offset_x: *so4, __include: local_colors/cszl1l2}
+      - {click: 1, long_click: Home, __include: local_colors/cszl1l1}
+      - {click: 2, long_click: Up, __include: local_colors/cszl1r1}
+      - {click: 3, long_click: End, __include: local_colors/cszl1r2}
+      - {click: Shift_L1, __include: local_colors/cszl1r3}
+
+      # 第二行
+      - {click: parentheses, long_click: '<>{Left}', key_symbol_offset_x: *so4, __include: local_colors/cszl2l3}
+      - {click: minus, long_click: '%', key_symbol_offset_x: *so4, __include: local_colors/cszl2l2}
+      - {click: 4, long_click: Left, __include: local_colors/cszl2l1}
+      - {click: 5, long_click: select_all, __include: local_colors/cszl2r1}
+      - {click: 6, long_click: Right, __include: local_colors/cszl2r2}
+      - {click: space1, swipe_up: Mode_switch, __include: local_colors/cszl2r3}
+
+      # 第三行
+      - {click: brackets, long_click: '{}{Left}', key_symbol_offset_x: *so4, __include: local_colors/cszl3l3}
+      - {click: asterisk, long_click: '#', key_symbol_offset_x: *so4, __include: local_colors/cszl3l2}
+      - {click: 7, long_click: cut, __include: local_colors/cszl3l1}
+      - {click: 8, long_click: Down, __include: local_colors/cszl3r1}
+      - {click: 9, long_click: copy, __include: local_colors/cszl3r2}
+      - {click: BackSpace, swipe_up: Clear, swipe_down: Comment_switch, swipe_left: Escape, key_press_offset_x: *npo1, key_press_offset_y: 0, __include: local_colors/cszl3r3}
+
+      # 第四行
+      - {click: Keyboard_default, long_click: Keyboard_edit, swipe_up: Symbol_switch, key_symbol_offset_x: *so4, __include: local_colors/cszl4l3}
+      - {click: slash, long_click: '\', key_symbol_offset_x: *so4, __include: local_colors/cszl4l2}
+      - {click: equal, long_click: Delete, key_symbol_offset_x: *so4, __include: local_colors/cszl4l1}
+      - {click: 0, long_click: paste, __include: local_colors/cszl4r1}
+      - {click: period, long_click: Keyboard_symbols, key_symbol_offset_x: *so4, __include: local_colors/cszl4r2}
+      - {click: Return1, long_click: Theme_settings, swipe_up: Color_settings, swipe_down: Candidate_switch, __include: local_colors/cszl4r3}
+
+  symbols:
+    name: 符号
+    author: "晨风"
+    ascii_mode: 1
+    width: 12.5
+    keyboard_height: *kbh3
+    height: 45
+    keys:
+      # 行一
+      - {click: '1', __include: local_colors/cl1l5, width: 10, height: 35}
+      - {click: '2', __include: local_colors/cl1l4, width: 10}
+      - {click: '3', __include: local_colors/cl1l3, width: 10}
+      - {click: '4', __include: local_colors/cl1l2, width: 10}
+      - {click: '5', __include: local_colors/cl1l1, width: 10}
+      - {click: '6', __include: local_colors/cl1r1, width: 10}
+      - {click: '7', __include: local_colors/cl1r2, width: 10}
+      - {click: '8', __include: local_colors/cl1r3, width: 10}
+      - {click: '9', __include: local_colors/cl1r4, width: 10}
+      - {click: '0', __include: local_colors/cl1r5, width: 10}
+
+      # 行二
+      - {click: '~', __include: local_colors/cl2l4}
+      - {click: '!', __include: local_colors/cl2l3}
+      - {click: '@', __include: local_colors/cl2l2}
+      - {click: '#', __include: local_colors/cl2l1}
+      - {click: '$', __include: local_colors/cl2r1}
+      - {click: '￥', __include: local_colors/cl2r2}
+      - {click: '%', __include: local_colors/cl2r3}
+      - {click: '^', __include: local_colors/cl2r4}
+
+      # 行三
+      - {click: '&', __include: local_colors/cl3l4}
+      - {click: '〖〗{Left}', swipe_up: '〖', swipe_down: '〗', __include: local_colors/cl3l3}
+      - {click: '(){Left}', swipe_up: '(', swipe_down: ')', __include: local_colors/cl3l2}
+      - {click: '[]{Left}', swipe_up: '[', swipe_down: ']', __include: local_colors/cl3l1}
+      - {click: '{}{Left}', swipe_up: '{', swipe_down: '}', __include: local_colors/cl3r1}
+      - {click: '<>{Left}', swipe_up: '<', swipe_down: '>', __include: local_colors/cl3r2}
+      - {click: '『』{Left}', swipe_up: '『', swipe_down: '』', __include: local_colors/cl3r3}
+      - {click: '_', __include: local_colors/cl3r4}
+
+      # 行四
+      - {click: '“', ascii: '"', long_click: "'", __include: local_colors/cl4l4}
+      - {click: '=', __include: local_colors/cl4l3}
+      - {click: '+', __include: local_colors/cl4l2}
+      - {click: '-', __include: local_colors/cl4l1}
+      - {click: '*', __include: local_colors/cl4r1}
+      - {click: '/', long_click: '_', __include: local_colors/cl4r2}
+      - {click: '\', ascii: '\', long_click: '|', __include: local_colors/cl4r3}
+      - {click: '”', ascii: '"', long_click: "'", __include: local_colors/cl4r4}
+
+      # 行五
+      - {click: Shift_L, swipe_up: Symbol_switch, swipe_down: Hint_switch, composing: Escape, key_long_text_size: 28, __include: local_colors/csd, width: 18.75}
+      - {click: ':', __include: local_colors/cl5l3}
+      - {label: '  ，', click: ',', long_click: '!', has_menu: delimiterD, swipe_up: '!', __include: local_colors/cdh}
+      - {click: Keyboard_edit, long_click: Theme_settings, swipe_up: Color_settings, __include: local_colors/cbj}
+      - {label: '  。', click: '.', long_click: '?', has_menu: delimiterM, swipe_up: '?', __include: local_colors/cjh}
+      - {click: ';', __include: local_colors/cl5r3}
+      - {click: BackSpace, swipe_up: Clear, swipe_down: Comment_switch, swipe_left: Escape, key_press_offset_x: *npo1, key_press_offset_y: 0, key_long_text_size: 28, width: 18.75, __include: local_colors/csc}
+
+      # 行六
+      - {click: Keyboard_default, has_menu: Page_Up1, long_click: Keyboard_number, swipe_up: Keyboard_number, __include: local_colors/csz}
+      - {click: Mode_switch, long_click: Keyboard_number, has_menu: Page_Down1, long_click: liquid_keyboard_switch, __include: local_colors/czy}
+      - {click: space, ascii: spacex, long_click: Mode_switch, swipe_up: Mode_switch, swipe_left: Left, swipe_right: Right, key_symbol_offset_x: 0, width: 50, __include: local_colors/ckg}
+      - {click: Return, composing: Return1, long_click: Color_settings, swipe_up: Theme_settings, swipe_down: Candidate_switch, key_symbol_offset_x: *so3, width: 25, __include: local_colors/chc}
+
+# 液态键盘
+liquid_keyboard:
+  # 目前只能直接写参数，不支持变量或者 fallback 机制
+  # 缺少参数时，自动从 style 中加载参数
+  # 除非需要指定 liquid_keyboard 使用与主键盘不同的背景色、背景图，否则不应设置被注释掉的参数
+  author: tumuyan
+  row: 6              # 每屏最多显示几行按键
+  row_land: 5         # 横屏模式每屏最多显示几行按键
+  key_height: 40      # 按键高度
+  key_height_land: 40 # 横屏模式按键高度
+  single_width: 50    # single 类型的按键宽度
+  margin_x: 3         # 横向按键间距的 1/2
+  vertical_gap: 3     # 纵向按键间距
+
+  # 固定按键栏
+  fixed_key_bar:
+    position: bottom # 固定位置: top|bottom|left|right
+    keys: # 按键列表
+      - Liquid_keyboard_exit
+      - Liquid_keyboard_tabs
+      - Clipboard
+      - space1
+      - BackSpace
+      - Return1
+
+  # tab 列表
+  keyboards: [clipboard, collection, draft, emoji, history, tabs, math, list, symbol, ids, pinyin, jp, unit, grease, rusa, korea, lation, phoneticsign, cn, ascii, script_symbols, combing, kaomoji, emoji_full, symbollist, candidate]
+
+  clipboard:
+    name: 📋
+    type: CLIPBOARD
+
+  collection:
+    name: 🔖
+    type: COLLECTION
+
+  draft:
+    name: 📝
+    type: DRAFT
+
+  history:
+    name: 最近
+    type: HISTORY
+
+  candidate:
+    name: 候选
+    type: CANDIDATE
+
+  tabs:
+    name: 更多 # 此类型 tabs 键盘中不显示
+    type: TABS
+
+  # tab 名称
+  emoji:
+    name: 🙂
+    type: SINGLE
+    # tab 中的按键列表
+    # keys 列表可以使用多种格式混合书写
+    keys: "🙂😂🤣😆🙃😅🥺😎👀🙈🙉🙊☹😑😄🤐😨😱🌚🌝🤔❤💔🌹💣👌👍😣😥😮🙄😏😕😯😪😫😴😌🤑😉😋😎😍😘😚😛😜😝😒😓😔😲😷🤒😇🤓🤗🤕🙁😖😞😟😤😢😭😦😧😨😩😬😰😳😵😡😠☝✌🖕👎🙏🤘👏💪💋☘🍀🌸☕🍵🍺🍻🍦🍬🍚🍜🍲🍖🎂💤"
+
+  emoji_full:
+    name: 👀
+    type: SINGLE
+    keys: "😀😃😄😁😆😅🤣😂🙂🙃🫠😉😊😇🥰😍🤩😘😗☺😚😙🥲😋😛😜🤪😝🤑🤗🤭🫢🫣🤫🤔🫡🤐🤨😐😑😶🫥😏😒🙄😬🤥😌😔😪🤤😴😷🤒🤕🤢🤮🤧🥵🥶🥴😵🤯🤠🥳🥸😎🤓🧐😕🫤😟🙁☹😮😯😲😳🥺🥹😦😧😨😰😥😢😭😱😖😣😞😓😩😫🥱😤😡😠🤬😈👿💀☠💩🤡👹👺👻👽👾🤖😺😸😹😻😼😽🙀😿😾🙈🙉🙊💌💘💝💖💗💓💞💕💟❣💔❤🧡💛💚💙💜🤎🖤🤍💋💯💢💥💫💦💨🕳💬🗨🗯💭💤👋🤚🖐✋🖖🫱🫲🫳🫴👌🤌🤏✌🤞🫰🤟🤘🤙👈👉👆🖕👇☝🫵👍👎✊👊🤛🤜👏🙌🫶👐🤲🤝🙏✍💅🤳💪🦾🦿🦵🦶👂🦻👃🧠🫀🫁🦷🦴👀👁👅👄🫦👶🧒👦👧🧑👱👨🧔👩🧓👴👵🙍🙎🙅🙆💁🙋🧏🙇🤦🤷👮🕵💂🥷👷🫅🤴👸👳👲🧕🤵👰🤰🫃🫄🤱👼🎅🤶🦸🦹🧙🧚🧛🧜🧝🧞🧟🧌💆💇🚶🧍🧎🏃💃🕺🕴👯🧖🧗🤺🏇⛷🏂🏌🏄🚣🏊⛹🏋🚴🚵🤸🤼🤽🤾🤹🧘🛀🛌👭👫👬💏💑👪🗣👤👥🫂👣🏻🏼🏽🏾🏿🦰🦱🦳🦲🐵🐒🦍🦧🐶🐕🦮🐩🐺🦊🦝🐱🐈🦁🐯🐅🐆🐴🐎🦄🦓🦌🦬🐮🐂🐃🐄🐷🐖🐗🐽🐏🐑🐐🐪🐫🦙🦒🐘🦣🦏🦛🐭🐁🐀🐹🐰🐇🐿🦫🦔🦇🐻🐨🐼🦥🦦🦨🦘🦡🐾🦃🐔🐓🐣🐤🐥🐦🐧🕊🦅🦆🦢🦉🦤🪶🦩🦚🦜🐸🐊🐢🦎🐍🐲🐉🦕🦖🐳🐋🐬🦭🐟🐠🐡🦈🐙🐚🪸🐌🦋🐛🐜🐝🪲🐞🦗🪳🕷🕸🦂🦟🪰🪱🦠💐🌸💮🪷🏵🌹🥀🌺🌻🌼🌷🌱🪴🌲🌳🌴🌵🌾🌿☘🍀🍁🍂🍃🪹🪺🍄🍇🍈🍉🍊🍋🍌🍍🥭🍎🍏🍐🍑🍒🍓🫐🥝🍅🫒🥥🥑🍆🥔🥕🌽🌶🫑🥒🥬🥦🧄🧅🥜🫘🌰🍞🥐🥖🫓🥨🥯🥞🧇🧀🍖🍗🥩🥓🍔🍟🍕🌭🥪🌮🌯🫔🥙🧆🥚🍳🥘🍲🫕🥣🥗🍿🧈🧂🥫🍱🍘🍙🍚🍛🍜🍝🍠🍢🍣🍤🍥🥮🍡🥟🥠🥡🦀🦞🦐🦑🦪🍦🍧🍨🍩🍪🎂🍰🧁🥧🍫🍬🍭🍮🍯🍼🥛☕🫖🍵🍶🍾🍷🍸🍹🍺🍻🥂🥃🫗🥤🧋🧃🧉🧊🥢🍽🍴🥄🔪🫙🏺🌍🌎🌏🌐🗺🗾🧭🏔⛰🌋🗻🏕🏖🏜🏝🏞🏟🏛🏗🧱🪨🪵🛖🏘🏚🏠🏡🏢🏣🏤🏥🏦🏨🏩🏪🏫🏬🏭🏯🏰💒🗼🗽⛪🕌🛕🕍⛩🕋⛲⛺🌁🌃🏙🌄🌅🌆🌇🌉♨🎠🛝🎡🎢💈🎪🚂🚃🚄🚅🚆🚇🚈🚉🚊🚝🚞🚋🚌🚍🚎🚐🚑🚒🚓🚔🚕🚖🚗🚘🚙🛻🚚🚛🚜🏎🏍🛵🦽🦼🛺🚲🛴🛹🛼🚏🛣🛤🛢⛽🛞🚨🚥🚦🛑🚧⚓🛟⛵🛶🚤🛳⛴🛥🚢✈🛩🛫🛬🪂💺🚁🚟🚠🚡🛰🚀🛸🛎🧳⌛⏳⌚⏰⏱⏲🕰🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦🌑🌒🌓🌔🌕🌖🌗🌘🌙🌚🌛🌜🌡☀🌝🌞🪐⭐🌟🌠🌌☁⛅⛈🌤🌥🌦🌧🌨🌩🌪🌫🌬🌀🌈🌂☂☔⛱⚡❄☃⛄☄🔥💧🌊🎃🎄🎆🎇🧨✨🎈🎉🎊🎋🎍🎎🎏🎐🎑🧧🎀🎁🎗🎟🎫🎖🏆🏅🥇🥈🥉⚽⚾🥎🏀🏐🏈🏉🎾🥏🎳🏏🏑🏒🥍🏓🏸🥊🥋🥅⛳⛸🎣🤿🎽🎿🛷🥌🎯🪀🪁🎱🔮🪄🎮🕹🎰🎲🧩🧸🪅🪩🪆♠♥♦♣♟🃏🀄🎴🔫🎭🖼🎨🧵🪡🧶🪢👓🕶🥽🥼🦺👔👕👖🧣🧤🧥🧦👗👘🥻🩱🩲🩳👙👚👛👜👝🛍🎒🩴👞👟🥾🥿👠👡🩰👢👑👒🎩🎓🧢🪖⛑📿💄💍💎🔇🔈🔉🔊📢📣📯🔔🔕🎼🎵🎶🎙🎚🎛🎤🎧📻🎷🪗🎸🎹🎺🎻🪕🥁🪘📱📲☎📞📟📠🔋🪫🔌💻🖥🖨⌨🖱🖲💽💾💿📀🧮🎥🎞📽🎬📺📷📸📹📼🔍🔎🕯💡🔦🏮🪔📔📕📖📗📘📙📚📓📒📃📜📄📰🗞📑🔖🏷💰🪙💴💵💶💷💸💳🧾💹✉📧📨📩📤📥📦📫📪📬📭📮🗳✏✒🖋🖊🖌🖍📝💼📁📂🗂📅📆🗒🗓📇📈📉📊📋📌📍📎🖇📏📐✂🗃🗄🗑🔒🔓🔏🔐🔑🗝💣🔨🪓⛏⚒🛠🗡⚔🪃🏹🛡🪚🔧🪛🔩⚙🗜⚖🦯🔗⛓🪝🧰🧲🪜⚗🧪🧫🧬🔬🔭📡💉🩸💊🩹🩼🩺🩻🚪🛗🪞🪟🛏🛋🪑🚽🪠🚿🛁🪤🪒🧴🧷🧹🧺🧻🪣🧼🫧🪥🧽🧯🛒🧿🪬🚬⚰🪦⚱🗿🪧🪪🏧🚮🚰♿🚹🚺🚻🚼🚾🛂🛃🛄🛅⚠🚸⛔🚫🚳🚭🚯🚱🚷📵🔞☢☣⬆↗➡↘⬇↙⬅↖↕↔↩↪⤴⤵🔃🔄🔙🔚🔛🔜🔝🛐⚛🕉✡☸☯✝☦☪☮🕎🔯♈♉♊♋♌♍♎♏♐♑♒♓⛎🔀🔁🔂▶⏩⏭⏯◀⏪⏮🔼⏫🔽⏬⏸⏹⏺⏏🎦🔅🔆📶📳📴♀♂⚧✖➕➖➗🟰♾‼⁉❓❔❕❗〰💱💲⚕♻⚜🔱📛🔰⭕✅☑✔❌❎➰➿〽✳✴❇©®™🔟🔠🔡🔢🔣🔤🅰🆎🅱🆑🆒🆓ℹ🆔Ⓜ🆕🆖🅾🆗🅿🆘🆙🆚🈁🈂🈷🈶🈯🉐🈹🈚🈲🉑🈸🈴🈳㊗㊙🈺🈵🔴🟠🟡🟢🔵🟣🟤⚫⚪🟥🟧🟨🟩🟦🟪🟫⬛⬜◼◻◾◽▪▫🔶🔷🔸🔹🔺🔻💠🔘🔳🔲🏁🚩🎌🏴🏳"
+
+  math:
+    name: 数学
+    type: SINGLE
+    keys: "≈＝≠≌<>≤≥≡()[]{}-+±×*/÷&∥%‰‱°′″∫∮∯∬∭∰∞∑∧∏∈∵∴⊥∝∨∪•√〒∝∽∈∩∧⊙⌒∥∟∣∂∆∞≌∉∪∨⊕⊿⊥∠∫∬∭"
+
+  cn:
+    name: 中标
+    type: SINGLE
+    keys:
+      - ，
+      - 。
+      - ？
+      - ！
+      - ：
+      - 、
+      - “
+      - ”
+      - ‘
+      - ···
+      - ……
+      - {click: "——", label: "——"}
+      # - {click: ""} # 内容为空可强制键盘由此新起一行
+      - （
+      - ）
+      - 【
+      - 】
+      - 《
+      - 》
+      - ［
+      - ］
+      - ｛
+      - ｝
+      - 「
+      - 」
+      - 『
+      - 』
+      - ～
+
+  symbol:
+    name: 特殊
+    type: SINGLE
+    keys: "△▽○◇□☆▲▼●◆■★▷◁▶◀♻♲†⚝✡⚹✦✸✹￼�×⌫☑☒✅❎✔✘✓✗☀☼☽☾◑◐㏂㏘☭♀♂☹☻☠☜☝☞☚☟☛▪•‥…∷※♩♪♫♬§°♭♯♮‖¶№◎¤۞℗®©卍卐℡™㏇Φ⇦⇧⇨⇩⇪↖↑↗←↔→↙↓↘⇄⇅⇆⇤↩⇥▸◂▴▾◤◥◣◢㊤㊧㊥㊨㊦❏❐◲〼▢▣↶✁↷✍⏍ϟ📝✎✆☱☰☴⚿⛮⚙☲☯☵⛶☩☐☳☷☶💬🗨⟲ღ✈☂🎤🌐🔍"
+
+  unit:
+    name: 单位
+    type: SINGLE
+    keys: "℃¥$€฿￡㎡m³℉￥£￠₠¹²³⁴⁵ⁿ⁶⁷⁸⁹⁰ˣ⁺⁻⁼⁽⁾½⅓¼⅔¾₁₂₃₄₅ₙ₆₇₈₉₀ₓ₊₋₌₍₎℅"
+
+  list:
+    name: 列表
+    type: SINGLE
+    keys: "①②③④⑤⑥⑦⑧⑨⑩⒈⒉⒊⒋⒌⒍⒎⒏⒐⒑⒒⒓⒔⒕⒖⒗⒘⒙⒚⒛⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩➊➋➌➍➎➏➐➑➒➓㊀㊁㊂㊃㊄㊅㊆㊇㊈㊉ⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ"
+
+  pinyin:
+    name: 拼音
+    type: SINGLE
+    keys: "āáǎàōóēéěèǒòīíǐìūúǖǘǚǜǔùêüńňㄚㄛㄜㄧㄨㄩㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙ"
+
+  script_symbols:
+    name: 𝒜𝒶
+    type: SINGLE
+    keys: "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵"
+
+  grease:
+    name: 希腊
+    type: SINGLE
+    keys: "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω"
+
+  rusa:
+    name: 俄语
+    type: SINGLE
+    keys: "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+
+  lation:
+    name: 拉丁
+    type: SINGLE
+    keys: "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞŠŸŒàáâãäåæçèéêëìíîïðñòóõôöøùúûüýþšÿœ"
+
+  jp:
+    name: 假名
+    type: SINGLE
+    keys: "あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわをんアィイウェエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヲン"
+
+  korea:
+    name: 韩文
+    type: SINGLE
+    keys: "ㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣㅐㅒㅔㅖㅘㅙㅚㅝㅞㅟㅢㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㄲㄸㅚㅆㅉ㉠㉡㉢㉣㉤㉥㉦㉧㉨㉩㉪㉫㉬㉭㉮㉯㉰㉱㉲㉳㉴㉵㉶㉷㉸㉹㉺㉻㈀㈁㈂㈃㈄㈅㈆㈇㈈㈉㈊㈋㈌㈍㈎㈏㈐㈑㈒㈓㈔㈕㈖㈗㈘㈙㈚㈛"
+
+  phoneticsign:
+    name: 音标
+    type: SINGLE
+    keys: ["a:", "ɔ:", "ɜː", "i:", "u:", "ʌ", "ɒ", "ə", "ɪ", "ʊ", "e", "æ", "eɪ", "aɪ", "ɔɪ", "ɪə", "eə", "ʊə", "əʊ", "aʊ", "p", "t", "k", "f", "θ", "s", "b", "d", "g", "v", "ð", "z", "ʃ", "h", "ts", "tʃ", "j", "tr", "ʒ", "r", "dz", "dʒ", "dr", "w", "m", "n", "ŋ", "l"]
+
+  ascii:
+    name: 西标
+    type: SINGLE
+    keys: ",.?!:;/\\|*-+=^$`'\"^~@#%&()[]{}_"
+
+  ids:
+    name: IDS
+    type: SINGLE
+    keys: "⿰⿱⿲⿳⿴⿵⿶⿷⿸⿹⿺⿻↷↔"
+
+  combing:
+    name: 组合
+    type: SINGLE
+    keys: ["⃢", "꯭", "̣", "̲"]
+
+  kaomoji:
+    name: "颜文字"
+    type: VAR_LENGTH
+    keys: ["⎛⎝≥⏝⏝≤⎠⎞", "^_^", "^ω^", "^o^", "~\\(≧▽≦)/~", "*^_^*", "↖(^ω^)↗", "(^o^)／", "(=^▽^=)", "=^_^=", "(*^ω^*)", "٩(๑^o^๑)۶", "o(￣▽￣)o", "Y(^_^)Y", "٩( 'ω' )و", "╰(*´︶`*)╯", "*罒▽罒*", "ヾ ^_^♪", "=￣ω￣=", "︿(￣︶￣)︿", "(´▽｀)ノ♪", "乁( ˙ ω˙乁)", "✧*｡٩(ˊωˋ*)و✧*｡", "～(￣▽￣～)(～￣▽￣)～", "QwQ", "(●—●)", "(๑• . •๑)", "ヾ(≧O≦)〃嗷~", "罒ω罒", "(｡ì _ í｡)", "(๑•ี_เ•ี๑)", "ㄟ(≧◇≦)ㄏ", "(*/ω＼*)", "●▽●", "٩(๑òωó๑)۶", "✺◟(∗❛ัᴗ❛ั∗)◞✺", "( σ'ω')σ", "♡＾▽＾♡", "(๑•̀ㅂ•́)و✧", "(ง •̀_•́)ง", "(｡･ω･｡)ﾉ♡", "(☆_☆)", "(๑°3°๑)", "_(•̀ω•́ 」∠)_", "♪～(´ε｀　)", "～(^з^)-☆", "(´∀｀)♡", "ლ(´ڡ`ლ)", "(＞﹏＜)", "T_T", "⊙︿⊙", "〒▽〒", "⊙﹏⊙", "π_π", "(｡•́︿•̀｡)", "(ToT)/~~~", "╯﹏╰", "ಥ_ಥ", "(╥╯^╰╥)", "(〃′o`)", "●﹏●", "( •̥́ ˍ •̀ू )", "(つд⊂)", "心塞(´-ωก`)", "(╥﹏╥)", "┭┮﹏┭┮", "（；´д｀）ゞ", "(´;︵;`)", "(。﹏。)", "┗( T﹏T )┛", "QAQ", "ヘ(_ _ヘ)", "╰（‵□′）╯", "(*￣︿￣)", ">o<", "(-`ェ´-怒)", "ヽ(‘⌒´メ)ノ", "(*｀Ω´*)v", "(｡•ˇ‸ˇ•｡)", "(怒｀Д´怒)", "٩(๑`^´๑)۶", "(;｀O´)o", "╰_╯", "(#｀皿´)<怒怒怒!!!", "<(｀^´)>", "（｀Δ´）！", "ψ(｀∇´)ψ", "(；′⌒`)", "s(・｀ヘ´・;)ゞ", "(▼皿▼#)", "￣へ￣", "←_←", "（╯‵□′）╯︵┴─┴", "（▼へ▼メ）", "☄ฺ(◣д◢)☄ฺ", "→_→", "⊙_⊙", "d(ŐдŐ๑)", "Σ( ° △ °|||)︴", "(((φ(◎ロ◎;)φ)))", "⊙▽⊙", "(๑ŐдŐ)b", "╭(°A°`)╮", "(๑òᆺó๑)", "⊙ω⊙", "Σ(っ °Д °;)っ", " (ﾟДﾟ≡ﾟдﾟ)!?", "( *・ω・)✄╰ひ╯", "(⊙x⊙;)", "┌(。Д。)┐", "(°ー°〃)", "︽⊙_⊙︽", "!!!∑(°Д°ノ)ノ", "(๑ŐдŐ)b☆d(ŐдŐ๑)", "Σ⊙▃⊙川", "ヽ(*。>Д<)o゜", "━((*′д｀)爻(′д｀*))━!!!!", "=_=", "╮(╯_╰)╭", "（︶︿︶）", "_(:з」∠)_", "@_@", "╮(╯▽╰)╭", "(＠￣ー￣＠)", "_(:3」∠❀)_", "눈_눈", "╭(╯ε╰)╮", "(ー_ー)!!", "_(:D)∠)_", "o_O", "╭(╯^╰)╮", "(；一_一)", "´_>`", "-_-#", "┑(￣Д ￣)┍", "≡￣﹏￣≡", "○|￣|_", "-_-||", "ㄟ( ▔, ▔ )ㄏ", "( ＿ ＿)ノ｜壁", "▄█▀█●"]
+
+  symbollist:
+    name: 符号表
+    type: SYMBOL
+    keys: [符号: '/fh', 计算机: '/dn', 象棋: '/xq', 麻将: '/mj', 骰子: '/sz', 扑克: '/pk', 天气: '/tq', 音乐: '/yy', 八卦: '/bg', 易经: '/lssg', 天体: '/tt', 星座: '/xz', 星号: '/xh', 方块: '/fk', 几何: '/jh', 箭头: '/jt', 数学: '/sx', 上标: '/sb', 下标: '/xb', 单位: '/dw', 货币: '/hb', 拼音: '/py', 注音: '/zy', 假名: '/jm', 片假: '/pjm', 韩文: '/hw', 希腊: '/xl', 希大: '/xld', 罗马: '/lm', 罗大: '/lmd', 俄语: '/ey', 俄大: '/eyd', 表情: '/bq', 一: '/1', 二: '/2', 三: '/3', 四: '/4', 五: '/5', 六: '/6', 七: '/7', 八: '/8', 九: '/9', 零: '/0', 十: '/10', 分数: '/fs', 标点: '/bd', 偏旁: '/pp', 竖标: '/bdz']
+
+  # 触发条件
+  when:
+    click: 单击
+    long_click: 长按
+    # double_click: 双击
+    combo: 并击
+    swipe_up: 上滑
+    swipe_down: 下滑
+    swipe_left: 左滑
+    swipe_right: 右滑
+    # always: 始终
+    # hover: 滑过
+    ascii: 西文事件
+    composing: 输入状态事件
+    has_menu: 选单事件
+    paging: 翻页事件
+  # 按键属性
+  property:
+    width: 宽度
+    height: 高度
+    gap: 间隔
+    label: 按键卷标
+    label_symbol: 符号卷标
+    states: 状态标签
+    hint: 按键助记
+    preview: 按键预览
+    repeatable: 连续按键
+    functional: 功能键
+    shift_lock: Shift锁定 # ascii_long: 英文长按中文单按锁定, long: 长按锁定, click: 单按锁定
+  # 执行动作
+  action:
+    command: 命令
+    option: 参数
+    select: 选择
+    toggle: 切换
+    send: 发送
+    text: 键组
+    commit: 上屏
