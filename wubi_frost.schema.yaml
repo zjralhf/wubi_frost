@@ -40,6 +40,7 @@ switches:
 # 输入引擎
 engine:
   processors:
+    - lua_processor@*quick_symbol_text    #快符引导以及重复上屏
     - ascii_composer
     - recognizer
     - key_binder
@@ -55,36 +56,72 @@ engine:
     - punct_segmentor
     - fallback_segmentor
   translators:
-    - punct_translator
+#    - punct_translator
     - reverse_lookup_translator
     - table_translator
-    - lua_translator@*date_translator    # 时间、日期、星期
-    - lua_translator@*lunar              # 农历
+    - lua_translator@*shijian    # 时间、日期、星期
     - table_translator@custom_phrase    # 自定义短语 custom_phrase.txt
-    - lua_translator@*unicode            # Unicode
     - lua_translator@*number_translator  # 数字、金额大写
     - lua_translator@*force_gc           # 暴力 GC
     - lua_translator@*calculator    # 计算器
   filters:
-    - lua_filter@*is_in_user_dict # 用户词典的词加上一个*
     - lua_filter@*pin_cand_filter                    # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
     - lua_filter@*reduce_english_filter              # 降低部分英语单词在候选项的位置
     - simplifier@emoji                              # Emoji
     - simplifier@traditionalize                     # 简繁切换
     - uniquifier                                    # 去重
 
+#shijian:仅仅作为提示使用，编码已经写死，引导适应性更高，如有需求lua中修改
+#时间：osj 或者 /sj
+#日期：orq 或者 /rq
+#农历：onl 或者 /nl
+#星期：oxq 或者 /xq
+#今年第几周：oww 或者 /ww
+#节气：ojq 或者 /jq
+#日期+时间：ors 或者 /rs
+#时间戳：ott 或者 /tt
+#大写N日期：N20250315
+#节日：ojr 或者 /jr
+#问候模板：/day 或者 oday
 
-# Lua 配置: 日期、时间、星期、ISO 8601、时间戳的触发关键字
-date_translator:
-  date: rq       # 日期： 2022-11-29
-  time: sj       # 时间： 18:13
-  week: xq       # 星期： 星期二
-  datetime: dt   # ISO 8601： 2022-11-29T18:13:11+08:00
-  timestamp: ts  # 时间戳： 1669716794
-
-
-# Lua 配置：农历的触发关键字
-lunar: nl  # 农历： 二〇二三年冬月二十 癸卯年（兔）冬月二十
+#快符lua，lua中有预设，26个字母、10个数字，你可以在这里配置替换默认的值，键可以是一个或多个，值可以是任意字符这里不齐全默认配置将生效
+quick_symbol_text:
+  q: "#"
+  w: "？"
+  e: "（"
+  r: "）"
+  t: "~"
+  y: "·"
+  u: "『"
+  i: "』"
+  o: "〖"
+  p: "〗"
+  a: "！"
+  s: "……"
+  d: "、"
+  f: "“"
+  g: "”"
+  h: "‘"
+  j: "’"
+  k: "【"
+  l: "】"
+  z: "。”"
+  x: "_"
+  c: "！”"
+  v: "——"
+  b: "%"
+  n: "《"
+  m: "》"
+  "1": "①"
+  "2": "②"
+  "3": "③"
+  "4": "④"
+  "5": "⑤"
+  "6": "⑥"
+  "7": "⑦"
+  "8": "⑧"
+  "9": "⑨"
+  "0": "⓪"
 
 
 # Lua 配置：长词优先
@@ -101,40 +138,6 @@ long_word_filter:
 corrector: "{comment}"
 
 
-# Lua 配置: 降低部分英语单词在候选项的位置。
-# 详细介绍 https://dvel.me/posts/make-rime-en-better/#短单词置顶的问题
-# 正常情况： 输入 rug 得到 「1.rug 2.如果 …… 」
-# 降低之后： 输入 rug 得到 「1.如果 2.rug …… 」
-# 几种模式：
-# all     降低脚本内置的单词（所有 3~4 位长度、前 2~3 位是完整拼音、最后一位是声母），words 作为自定义的额外补充
-# custom  完全自定义，只降低 words 里的
-# none    不降低任何单词，相当于没有启用这个 Lua
-# （匹配的是编码，不是单词）
-reduce_english_filter:
-  mode: custom  # all | custom | none
-  idx: 2        # 降低到第 idx 个位置
-  # 自定义的单词列表，示例列表没有降低部分常用单词，如 and cat mail Mac but bad shit ……
-  words: [
-    aid, ann,
-    bail, bait, bam, band, bans, bat, bay, bend, bent, benz, bib, bid, bien, biz, boc, bop, bos, bud, buf, bach, bench, bush,
-    cab, cad, cain, cam, cans, cap, cas, cef, chad, chan, chap, chef, cher, chew, chic, chin, chip, chit, coup, cum, cunt, cur, couch,
-    dab, dag, dal, dam, dent, dew, dial, diet, dim, din, dip, dis, dit, doug, dub, dug, dunn, don,
-    fab, fax, fob, fog, foul, fur,
-    gag, gail, gain, gal, gam, gaol, ged, gel, ger, guam, gus, gut,
-    hail, ham, hank, hans, hat, hay, heil, heir, hem, hep, hud, hum, hung, hunk, hut, hush,
-    jim, jug,
-    kat,
-    lab, lad, lag, laid, lam, laos, lap, lat, lax, lay, led, leg, lex, liam, lib, lid, lied, lien, lies, linn, lip, lit, liz, lob, lug, lund, lung, lux, lash, loch, lush,
-    mag, maid, mann, mar, mat, med, mel, mend, mens, ment, mil, mins, mint, mob, moc, mop, mos, mot, mud, mug, mum, mesh,
-    nap, nat, nay, neil, nib, nip, noun, nous, nun, nut, nail, nash,
-    pac, paid, pail, pain, pair, pak, pal, pam, pans, pant, pap, par, pat, paw, pax, pens, pic, pier, pies, pins, pint, pit, pix, pod, pop, pos, pot, pour, pow, pub, pinch, pouch,
-    rand, rant, rent, rep, res, ret, rex, rib, rid, rig, rim, rub, rug, rum, runc, runs, ranch,
-    sac, sail, sal, sam, sans, sap, saw, sax, sew, sham, shaw, shin, sig, sin, sip, sis, suit, sung, suns, sup, sur, sus,
-    tad, tail, taj, tar, tax, tec, ted, tel, ter, tex, tic, tied, tier, ties, tim, tin, tit, tour, tout, tum,
-    wag, wand, womens, wap, wax, weir, won,
-    yan, yen,
-    zach
-  ]
 
 
 # Lua 配置: 置顶候选项
@@ -289,12 +292,18 @@ translator:
   enable_user_dict: false               # 是否开启用户词典（用户词典记录动态字词频，用户词）
   enable_encoder: false                 # 自动造词
   encode_commit_history: false          # 是否对已上屏的词自动造词
-
   max_phrase_length: 10                 # 自动生成词的最大长度
   user_dict: user                       # 用户词典名
   db_class: tabledb                     # 用户词典类型 userdb - 二进制 / tabledb - 人类语言
   disable_user_dict_for_patterns:       # 不需要录入用户词典的编码
     - "^z.*$"
+  comment_format:
+    # 使用反查的时候
+    # 只显示最后一个全码
+    # - xform/.*(\b.+$)/\1/
+    # 只显示最短简码
+    #- xform/(^\w+).*/\1/
+    - xform/.*//           # 清空提示码
 
 # 输入的编码同时进行拼音反查，实现五笔与拼音的混输
 abc_segmentor:
@@ -307,7 +316,13 @@ reverse_lookup:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
     - xform/([jqxy])v/$1u/
-
+  comment_format:
+    # 使用反查的时候
+    # 只显示最后一个全码
+    # - xform/.*(\b.+$)/\1/
+    # 只显示最短简码
+    #- xform/(^\w+).*/\1/
+    - xform/.*//           # 清空提示码
 
 
 # 自定义短语：custom_phrase.txt
@@ -354,18 +369,22 @@ recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
     punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols_v.yaml 的 symbols，用 'v' 替换 '/'
-    unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@*unicode，输出 Unicode 字符
     number: "^R[0-9]+[.]?[0-9]*"        # 脚本将自动获取第 2 个字符 R 作为触发前缀，响应 lua_translator@*number_translator，数字金额大写
     gregorian_to_lunar: "^N[0-9]{1,8}"  # 脚本将自动获取第 2 个字符 N 作为触发前缀，响应 lua_translator@*lunar，公历转农历，输入 N20240115 得到「二〇二三年腊月初五」
     calculator: "^V.*$"                 #计算器功能引导
+    quick_symbol: "^'.*$"  # 快符引导，例如输入'q 后自动上屏快速符号，双击''重复上屏符号，单次输入
+    quick_text: "^;.*$"  # 双击;;重复上屏汉字和字母
 
 # 从 default 继承快捷键
 key_binder:
   import_preset: default  # 从 default.yaml 继承通用的
-  aux_code_trigger: "`"   # 辅码引导符，要添加到 speller/alphabet
+#  aux_code_trigger: "`"   # 辅码引导符，要添加到 speller/alphabet
   # bindings:             # 也可以再增加方案专有的快捷键
 
 
 # 拼写设定
 speller:
-
+  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`;/
+  # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
