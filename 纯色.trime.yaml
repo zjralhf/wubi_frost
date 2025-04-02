@@ -36,7 +36,7 @@ style:
   hanb_font: hanb.ttf #扩充字型
 
   # 键盘区
-  key_height: 45 # 预设键高
+  key_height: 52 # 预设键高
   key_width: 10.0 #键宽，占屏幕宽的百分比
   key_font: 03-W03.ttf #按键字体
   key_text_size: 27 #按键字号
@@ -50,10 +50,10 @@ style:
   proximity_correction: true # 按键邻近空间校正true打开false关闭
   vertical_correction: -5 # 按键触摸位置校正(上正下负)
   keyboard_height: 225 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
-  keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height_land: 130 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
   keyboard_padding: 3 #竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
-  keyboard_padding_bottom: 15 #竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
-  keyboard_padding_left: 3 #竖屏屏模式下，左手键盘布局，屏幕左侧与键盘的距离
+  keyboard_padding_bottom: 8 #竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
+  keyboard_padding_left: 8 #竖屏屏模式下，左手键盘布局，屏幕左侧与键盘的距离
   keyboard_padding_right: 40 #竖屏屏模式下，左手键盘布局，屏幕右侧与键盘的距离
   keyboard_padding_land: 40 #横屏模式下，屏幕左右两侧与键盘的距离(避免横屏按键过度拉伸变形)
   keyboard_padding_land_bottom: 0 #横屏模式下，屏幕下侧与键盘的距离
@@ -3264,28 +3264,28 @@ preset_keyboards:
     key_press_offset_y: *po1 # 高亮按键文本纵向偏移量(上负下正)
     keys:
        # 第一行
-      - {click: 1, long_click: '!', swipe_up: ',', swipe_down: '.', hint: '。', key_hint_offset_x: 12, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1l5, height: 30}
-      - {click: 2, long_click: '@', swipe_up: '=', swipe_down: '=', hint: '=', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l4}
-      - {click: 3, long_click: '#', swipe_up: plus, swipe_down: plus, hint: '+', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l3}
-      - {click: 4, long_click: '$', swipe_up: minus, swipe_down: minus, hint: '-', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l2}
-      - {click: 5, long_click: '%', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l1}
-      - {click: 6, long_click: '^', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r1}
-      - {click: 7, long_click: '&', swipe_up: slash, swipe_down: slash, hint: '÷', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r2}
-      - {click: 8, long_click: '*', swipe_up: asterisk, swipe_down: asterisk, hint: '×', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r3}
-      - {click: 9,  long_click: '(', key_hint_offset_x: 10, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1r4}
-      - {click: 0, long_click: ')', key_hint_offset_x: 10, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1r5}
+#      - {click: 1, long_click: '!', swipe_up: ',', swipe_down: '.', hint: '。', key_hint_offset_x: 12, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1l5, height: 30}
+#      - {click: 2, long_click: '@', swipe_up: '=', swipe_down: '=', hint: '=', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l4}
+#      - {click: 3, long_click: '#', swipe_up: plus, swipe_down: plus, hint: '+', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l3}
+#      - {click: 4, long_click: '$', swipe_up: minus, swipe_down: minus, hint: '-', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l2}
+#      - {click: 5, long_click: '%', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1l1}
+#      - {click: 6, long_click: '^', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r1}
+#      - {click: 7, long_click: '&', swipe_up: slash, swipe_down: slash, hint: '÷', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r2}
+#      - {click: 8, long_click: '*', swipe_up: asterisk, swipe_down: asterisk, hint: '×', key_hint_offset_x: 10, key_hint_offset_y: 2, key_symbol_offset_x: -10, __include: local_colors/cl1r3}
+#      - {click: 9,  long_click: '(', key_hint_offset_x: 10, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1r4}
+#      - {click: 0, long_click: ')', key_hint_offset_x: 10, key_hint_offset_y: -2, key_symbol_offset_x: -10, __include: local_colors/cl1r5}
 
        # 第二行
-      - {click: q, long_click: '@', swipe_up: Page_Up, __include: local_colors/cl2l5}
-      - {click: w, long_click: '~', __include: local_colors/cl2l4}
-      - {click: e, long_click: '_', key_symbol_offset_y: -4, __include: local_colors/cl2l3}
-      - {click: r, long_click: "'", __include: local_colors/cl2l2}
-      - {click: t, long_click: '*', swipe_up: Up, __include: local_colors/cl2l1}
-      - {click: y, long_click: '"', swipe_up: '"', swipe_down: '_', __include: local_colors/cl2r1}
-      - {click: u, long_click: '&', __include: local_colors/cl2r2}
-      - {click: i, long_click: '^', __include: local_colors/cl2r3}
-      - {click: o, long_click: '[]{Left}', swipe_up: '[', swipe_down: ']', __include: local_colors/cl2r4}
-      - {click: p, long_click: '{}{Left}', swipe_up: '{', swipe_down: '}', __include: local_colors/cl2r5}
+      - {click: q, long_click: 1, swipe_up: '!', __include: local_colors/cl2l5}
+      - {click: w, long_click: 2, swipe_up: '@', __include: local_colors/cl2l4}
+      - {click: e, long_click: 3, swipe_up: '#', __include: local_colors/cl2l3}
+      - {click: r, long_click: 4, swipe_up: '$', __include: local_colors/cl2l2}
+      - {click: t, long_click: 5, swipe_up: '%', __include: local_colors/cl2l1}
+      - {click: y, long_click: 6, swipe_up: '^', __include: local_colors/cl2r1}
+      - {click: u, long_click: 7, swipe_up: '&', __include: local_colors/cl2r2}
+      - {click: i, long_click: 8, swipe_up: '*', __include: local_colors/cl2r3}
+      - {click: o, long_click: 9, swipe_up: '[]{Left}', __include: local_colors/cl2r4}
+      - {click: p, long_click: 0, swipe_up: '{}{Left}', __include: local_colors/cl2r5}
 
       # 第三行
       - {click: Left1, __include: local_colors/csfy, width: 5}
@@ -3314,7 +3314,7 @@ preset_keyboards:
       # 第五行
       - {click: Keyboard_number, long_click: IME_switch, swipe_up: Menu, has_menu: Page_Up1, key_symbol_offset_x: *so2, __include: local_colors/csz}
       - {click: Keyboard_edit, has_menu: Page_Down1, long_click: Theme_settings, swipe_up: Color_settings, key_symbol_offset_x: *so2, __include: local_colors/cbj}
-      - {label: '  ，', click: ',', long_click: '!', , has_menu: delimiterF, swipe_up: '`', __include: local_colors/cdh}
+      - {label: '  ，', click: ',', long_click: "'", has_menu: delimiterF, swipe_up: '`', __include: local_colors/cdh}
       - {click: space, ascii: spacex, long_click: Mode_switch, swipe_up: Mode_switch, swipe_left: Left, swipe_right: Right, key_symbol_offset_x: 0, width: 40, __include: local_colors/ckg}
       - {label: '  。', click: '.', long_click: Keyboard_symbols, has_menu: delimiterM, swipe_up: '?', __include: local_colors/cjh}
       - {click: Return, composing: Return1, long_click: Theme_settings, swipe_up: Color_settings, swipe_down: Candidate_switch, key_symbol_offset_x: *so3, width: 20, __include: local_colors/chc}
